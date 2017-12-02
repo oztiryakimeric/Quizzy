@@ -21,7 +21,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../CS 202/mysql-connector-java-3.0.17-ga-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/mysql-connector-java-3.0.17-ga-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
