@@ -19,7 +19,7 @@ public class DatabaseChecker {
         Connection conn = null;
         Statement stmt = null;
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(JDBC_DRIVER);
             System.out.println("Connecting to database...");
             conn = (Connection) DriverManager.getConnection(DB_URL,USER,PASS);
 

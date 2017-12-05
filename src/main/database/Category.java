@@ -8,7 +8,13 @@ public class Category {
     private Date timestamp;
 
 
+    private Category(int id, String name, Date timestamp) {
+        this.id = id;
+        this.name = name;
+        this.timestamp = timestamp;
+    }
+
     public static List<Category> getAll() {
-        return null;
+        return Api.getAllCategories();
     }
 }

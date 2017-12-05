@@ -17,10 +17,10 @@ public class User {
     }
 
     public static User create(String username, String password, String email) {
-        return null;
+        return Api.createUser(username, password, email);
     }
 
     public static User authenticate(String username, String password) {
-        return null;
+        return Api.getUser(username, password);
     }
 }

@@ -3,11 +3,8 @@ package main.gui;
 import main.core.LoginController;
 
 import javax.swing.*;
-import java.util.*;
+import java.awt.*;
 
-/**
- *
- */
 public class LoginPanel extends JPanel implements LoginListener{
     private JFrame parentView;
     private LoginController controller;
@@ -17,7 +14,9 @@ public class LoginPanel extends JPanel implements LoginListener{
     private JButton newUserButton;
 
     public LoginPanel(JFrame owner) {
-
+        JLabel label = new JLabel("Login Panel");
+        this.add(label);
+        setBackground(Color.red);
     }
 
     private void initializeViews() {

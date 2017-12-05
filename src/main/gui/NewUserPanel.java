@@ -4,6 +4,7 @@ import main.core.NewUserController;
 import main.database.User;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 /**
@@ -18,7 +19,9 @@ public class NewUserPanel extends JPanel implements NewUserListener{
     private JTextField emailTextField;
 
     public NewUserPanel(JFrame owner) {
-
+        JLabel label = new JLabel("New User Panel");
+        this.add(label);
+        setBackground(Color.blue);
     }
 
     private void initializeViews() {

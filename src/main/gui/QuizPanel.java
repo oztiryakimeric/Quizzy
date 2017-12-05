@@ -16,7 +16,7 @@ public class QuizPanel extends JPanel implements QuizListener{
     private JLabel questionLabel;
     private List<JButton> answerButtons;
 
-    public QuizPanel(User user, Category category) {
+    public QuizPanel(JFrame owner, User user, Category category) {
 
     }
 
