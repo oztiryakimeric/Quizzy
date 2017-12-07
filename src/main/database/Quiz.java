@@ -2,9 +2,7 @@ package main.database;
 
 import java.util.*;
 
-/**
- *
- */
+
 public class Quiz {
     private Stack<Question> questionList;
     private int point;

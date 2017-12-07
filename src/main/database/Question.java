@@ -11,7 +11,7 @@ public class Question {
         shuffleQuestions(wrongAnswers, correctAnswer);
     }
 
-    public List<Choice> getRandomAnswerSet() {
+    public List<Choice> getChoiceList() {
         return this.choiceList;
     }
 
