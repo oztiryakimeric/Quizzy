@@ -32,5 +32,4 @@ public class Quiz {
     public int getPoint() {
         return 0;
     }
-
 }
