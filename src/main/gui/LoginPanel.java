@@ -14,35 +14,40 @@ public class LoginPanel extends JPanel implements LoginListener{
     private JButton newUserButton;
 
     public LoginPanel(JFrame owner) {
-        //JLabel label = new JLabel("Login Panel");
-        //this.add(label);
-        //setBackground(Color.red);
+        this.parentView = owner;
+        this.controller = new LoginController(this);
         initializeViews();
     }
 
     private void initializeViews() {
+        this.setLayout(new GridBagLayout());
+
         JPanel mainPanel = new JPanel(new GridLayout(3,1));
         usernameTextField = new JTextField();
         passwordTextField = new JTextField();
         loginButton = new JButton("Login");
         newUserButton = new JButton("New User");
+        JLabel usernameLabel = new JLabel("Username:");
+        JLabel passwordLabel = new JLabel("Password:");
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout());
+
         buttonPanel.add(loginButton);
         buttonPanel.add(newUserButton);
-        this.setLayout(new GridBagLayout());
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayout(2,2));
-        JLabel userName = new JLabel("Username:");
-        JLabel password = new JLabel("Password:");
-        panel1.add(userName);
-        panel1.add(usernameTextField);
-        panel1.add(password);
-        panel1.add(passwordTextField);
-        mainPanel.add(panel1);
+
+
+        JPanel credentialsPanel = new JPanel();
+        credentialsPanel.setLayout(new GridLayout(2,2));
+
+        credentialsPanel.add(usernameLabel);
+        credentialsPanel.add(usernameTextField);
+        credentialsPanel.add(passwordLabel);
+        credentialsPanel.add(passwordTextField);
+
+        mainPanel.add(credentialsPanel);
         mainPanel.add(buttonPanel);
         this.add(mainPanel);
-
     }
 
     private void login(String username, String password) {
