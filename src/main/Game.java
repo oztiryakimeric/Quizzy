@@ -5,7 +5,7 @@ import main.gui.MainFrame;
 import java.util.*;
 
 public class Game {
-    public static final String APP_NAME = "Quizzy3";
+    public static final String APP_NAME = "Quizzy4";
 
     public static void main(String[] args) {
         new MainFrame();
