@@ -20,8 +20,8 @@ public class LoginPanel extends JPanel{
         this.setLayout(new GridBagLayout());
 
         JPanel mainPanel = new JPanel(new GridLayout(3,1));
-        usernameTextField = new JTextField();
-        passwordTextField = new JTextField();
+        usernameTextField = new JTextField(10);
+        passwordTextField = new JTextField(10);
         loginButton = new JButton("Login");
         newUserButton = new JButton("New User");
         JLabel usernameLabel = new JLabel("Username:");
@@ -30,8 +30,9 @@ public class LoginPanel extends JPanel{
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout());
 
-        buttonPanel.add(loginButton);
         buttonPanel.add(newUserButton);
+        buttonPanel.add(new JLabel("                    "));
+        buttonPanel.add(loginButton);
 
 
         JPanel credentialsPanel = new JPanel();

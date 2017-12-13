@@ -5,6 +5,7 @@ import main.database.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
@@ -17,24 +18,72 @@ public class NewUserPanel extends JPanel implements NewUserListener{
     private JTextField passwordTextField;
     private JTextField password2TextField;
     private JTextField emailTextField;
+    private JButton registerButton;
 
     public NewUserPanel(JFrame owner) {
-        JLabel label = new JLabel("New User Panel");
-        this.add(label);
-        setBackground(Color.blue);
         initializeViews();
     }
 
     private void initializeViews() {
+        usernameTextField = new JTextField(20);
+        passwordTextField = new JTextField();
+        password2TextField = new JTextField();
+        emailTextField = new JTextField();
+        registerButton = new JButton("Register");
+        JLabel usernameLabel = new JLabel("Username:");
+        JLabel passwordLabel = new JLabel("Password:");
+        JLabel passwordLabel2 = new JLabel("Password:");
+        JLabel emailLabel = new JLabel("Email:");
+        this.setLayout(new GridBagLayout());
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridBagLayout());
+        buttonPanel.add(registerButton);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(5,2));
+        mainPanel.add(usernameLabel);
+        mainPanel.add(usernameTextField);
+        mainPanel.add(emailLabel);
+        mainPanel.add(emailTextField);
+        mainPanel.add(passwordLabel);
+        mainPanel.add(passwordTextField);
+        mainPanel.add(passwordLabel2);
+        mainPanel.add(password2TextField);
+        mainPanel.add(new JLabel());
+        mainPanel.add(buttonPanel);
+        this.add(mainPanel);
 
+    }
+
+    public void addActionListener(ActionListener listener){
+        registerButton.addActionListener(listener);
+    }
+
+    public JTextField getUsernameTextField() {
+        return usernameTextField;
+    }
+
+    public JTextField getPasswordTextField() {
+        return passwordTextField;
+    }
+
+    public JTextField getPassword2TextField() {
+        return password2TextField;
+    }
+
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+
+    public JButton getRegisterButton() {
+        return registerButton;
     }
 
     private User createNewUser(String username, String password, String email) {
-        return null;
+        return User.create(username,password,email);
     }
 
     private void displayError() {
-
+        JOptionPane.showMessageDialog(null,"User cannot be created.");
     }
 
     @Override
@@ -44,6 +93,6 @@ public class NewUserPanel extends JPanel implements NewUserListener{
 
     @Override
     public void errorOccured(String message) {
-
+        JOptionPane.showMessageDialog(null, message);
     }
 }
