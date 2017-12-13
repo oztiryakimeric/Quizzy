@@ -4,6 +4,7 @@ import main.Game;
 import main.core.CategoryListController;
 import main.core.LoginController;
 import main.core.NewUserController;
+import main.database.Api;
 import main.database.Category;
 import main.database.User;
 
@@ -19,7 +20,8 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 600);
 
-        showLoginPage();
+        //showLoginPage();
+        showQuizPage(Api.getAllCategories().get(0));
 
         this.setVisible(true);
     }
@@ -50,7 +52,7 @@ public class MainFrame extends JFrame {
     }
 
     public void showQuizPage(Category category) {
-        drawPanel(new QuizPanel(this, authenticatedUser, category));
+        drawPanel(new QuizPanel(category));
     }
 
     public void showScorePage() {

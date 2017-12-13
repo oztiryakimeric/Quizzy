@@ -1,10 +1,10 @@
 package main.gui;
 
-import main.core.QuizController;
 import main.database.*;
 import main.database.Choice;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -12,56 +12,70 @@ import java.util.List;
 
 
 public class QuizPanel extends JPanel{
-    private JFrame parentView;
     private JLabel timerLabel;
-    private JLabel pointLabel;
-    private JLabel questionLabel;
+    private JLabel scoreLabel;
+    private JLabel questionTextLabel;
     private List<JButton> answerButtons;
     private Quiz quiz;
 
-    public QuizPanel(JFrame owner, User user, Category category) {
-        this.parentView = owner;
+    public QuizPanel(Category category) {
 
         quiz = Quiz.getQuiz(category);
 
-        answerButtons = new ArrayList<JButton>();
+        answerButtons = new ArrayList<>();
         initializeViews();
-        System.out.println("Quiz Panel opened");
+        updateQuestion(quiz.getCurrentQuestion());
     }
 
     private void initializeViews() {
-        questionLabel = new JLabel();
+        this.setLayout(new BorderLayout());
+        initTimerLabel();
+        initScoreLabel();
+        initQuestionPanel();
+    }
+
+    private void initTimerLabel(){
         timerLabel = new JLabel("Time: 60");
-        pointLabel = new JLabel("Score: 0");
 
-        JPanel qaPanel = new JPanel();
-        qaPanel.setLayout(new GridLayout(2,1));
+        JPanel timerPanel = new JPanel();
+        timerPanel.add(timerLabel);
 
+        this.add(timerPanel, BorderLayout.SOUTH);
+    }
+
+    private void initQuestionPanel(){
         JPanel questionPanel = new JPanel();
-        questionPanel.setLayout(new GridBagLayout());
-        questionPanel.add(questionLabel);
-        qaPanel.add(questionPanel);
+        questionPanel.setLayout(new GridLayout(2,1));
+
+        JPanel questionTextPanel = new JPanel();
+        questionTextPanel.setLayout(new GridBagLayout());
+
+        questionTextLabel = new JLabel();
+        questionTextPanel.add(questionTextLabel);
+
+        questionPanel.add(questionTextPanel);
 
         JPanel answerPanel = new JPanel();
-        JPanel answers = new JPanel();
-
-        answers.setLayout(new GridBagLayout());
         answerPanel.setLayout(new GridLayout(2,2));
-        for (int i = 0; i< answerButtons.size(); i++){
-            answerPanel.add(answerButtons.get(i));
+
+        for(int i=0; i<4; i++){
+            JButton button = new JButton();
+            answerButtons.add(button);
+            answerPanel.add(button);
         }
-        answers.add(answerPanel);
-        qaPanel.add(answers);
-        JPanel timePanel = new JPanel();
-        timePanel.setLayout(new GridBagLayout());
+
+        questionPanel.add(answerPanel);
+
+        this.add(questionPanel, BorderLayout.CENTER);
+    }
+
+    private void initScoreLabel(){
+        scoreLabel = new JLabel("Score: 0");
+
         JPanel scorePanel = new JPanel();
-        scorePanel.setLayout(new GridBagLayout());
-        timePanel.add(timerLabel);
-        scorePanel.add(pointLabel);
-        this.setLayout(new BorderLayout());
+        scorePanel.add(scoreLabel);
+
         this.add(scorePanel, BorderLayout.NORTH);
-        this.add(qaPanel, BorderLayout.CENTER);
-        this.add(timePanel, BorderLayout.SOUTH);
     }
 
     public void addActionListener(ActionListener listener){
@@ -74,12 +88,12 @@ public class QuizPanel extends JPanel{
     }
 
     public void updatePoint(int point) {
-        pointLabel.setText("Score: " + Integer.toString(point));
+        scoreLabel.setText("Score: " + Integer.toString(point));
     }
 
     public void updateQuestion(Question question){
         List<Choice> choices = question.getChoiceList();
-        questionLabel.setText(question.getText());
+        questionTextLabel.setText(question.getText());
 
         for(int i=0; i<choices.size(); i++){
             answerButtons.get(i).setText(choices.get(i).getText());

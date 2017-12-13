@@ -26,6 +26,10 @@ public class Quiz {
         return currentQuestion;
     }
 
+    public Question getCurrentQuestion() {
+        return currentQuestion;
+    }
+
     public boolean answerQuestion(Choice choice) {
         if(currentQuestion.solve(choice)){
             //Give point...

@@ -15,6 +15,7 @@ public class NewUserController implements ActionListener{
     public NewUserController(MainFrame root, NewUserPanel gui) {
         this.root = root;
         this.gui = gui;
+        gui.addActionListener(this);
     }
 
     @Override
