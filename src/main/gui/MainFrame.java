@@ -21,8 +21,8 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 600);
 
-        //showLoginPage();
-        showQuizPage(Api.getAllCategories().get(0));
+        showLoginPage();
+
 
         this.setVisible(true);
     }
