@@ -22,6 +22,7 @@ public class NewUserPanel extends JPanel implements NewUserListener{
         JLabel label = new JLabel("New User Panel");
         this.add(label);
         setBackground(Color.blue);
+        initializeViews();
     }
 
     private void initializeViews() {
