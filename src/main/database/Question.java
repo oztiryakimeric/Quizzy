@@ -8,7 +8,7 @@ public class Question {
 
     public Question(String question, String[] wrongAnswers, String correctAnswer) {
         this.text = question;
-        shuffleQuestions(wrongAnswers, correctAnswer);
+        shuffleAnswers(wrongAnswers, correctAnswer);
     }
 
     public boolean solve(Choice choice){
@@ -23,7 +23,7 @@ public class Question {
         return this.text;
     }
 
-    private void shuffleQuestions(String[] wrongAnswers, String correctAnswer) {
+    private void shuffleAnswers(String[] wrongAnswers, String correctAnswer) {
         for(int i=0; i<wrongAnswers.length; i++)
             choiceList.add(Choice.wrongOne(wrongAnswers[i]));
         choiceList.add(Choice.correctOne(correctAnswer));

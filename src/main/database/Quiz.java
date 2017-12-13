@@ -30,18 +30,12 @@ public class Quiz {
         return currentQuestion;
     }
 
-    public boolean answerQuestion(Choice choice) {
-        if(currentQuestion.solve(choice)){
-            //Give point...
-            return true;
-        }
-        else{
-            //Finish quiz...
-            return false;
-        }
+    public int getPoint() {
+        return point;
     }
 
-    public int getPoint() {
+    public int givePoint(int p){
+        this.point += p;
         return point;
     }
 }

@@ -15,11 +15,10 @@ public class QuizPanel extends JPanel{
     private JLabel timerLabel;
     private JLabel scoreLabel;
     private JLabel questionTextLabel;
-    private List<JButton> answerButtons;
+    private List<AnswerButton> answerButtons;
     private Quiz quiz;
 
     public QuizPanel(Category category) {
-
         quiz = Quiz.getQuiz(category);
 
         answerButtons = new ArrayList<>();
@@ -59,7 +58,7 @@ public class QuizPanel extends JPanel{
         answerPanel.setLayout(new GridLayout(2,2));
 
         for(int i=0; i<4; i++){
-            JButton button = new JButton();
+            AnswerButton button = new AnswerButton();
             answerButtons.add(button);
             answerPanel.add(button);
         }
@@ -83,10 +82,6 @@ public class QuizPanel extends JPanel{
             button.addActionListener(listener);
     }
 
-    public void updateTimer(String time) {
-        timerLabel.setText("Time: " + time);
-    }
-
     public void updatePoint(int point) {
         scoreLabel.setText("Score: " + Integer.toString(point));
     }
@@ -95,8 +90,19 @@ public class QuizPanel extends JPanel{
         List<Choice> choices = question.getChoiceList();
         questionTextLabel.setText(question.getText());
 
-        for(int i=0; i<choices.size(); i++){
-            answerButtons.get(i).setText(choices.get(i).getText());
-        }
+        for(int i=0; i<choices.size(); i++)
+            answerButtons.get(i).setChoice(choices.get(i));
+    }
+
+    public JLabel getTimerLabel() {
+        return timerLabel;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void displayMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
     }
 }

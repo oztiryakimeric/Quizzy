@@ -4,6 +4,7 @@ import main.Game;
 import main.core.CategoryListController;
 import main.core.LoginController;
 import main.core.NewUserController;
+import main.core.QuizController;
 import main.database.Api;
 import main.database.Category;
 import main.database.User;
@@ -52,7 +53,9 @@ public class MainFrame extends JFrame {
     }
 
     public void showQuizPage(Category category) {
-        drawPanel(new QuizPanel(category));
+        QuizPanel panel = new QuizPanel(category);
+        QuizController controller = new QuizController(this, panel);
+        drawPanel(panel);
     }
 
     public void showScorePage() {
