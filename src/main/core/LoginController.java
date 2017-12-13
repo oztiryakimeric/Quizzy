@@ -3,20 +3,18 @@ package main.core;
 import main.database.User;
 import main.gui.LoginPanel;
 import main.gui.MainFrame;
-import sun.applet.Main;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginController implements ActionListener{
 
-    private LoginPanel gui;
     private MainFrame root;
+    private LoginPanel gui;
 
-    public LoginController(LoginPanel gui, MainFrame owner) {
-        this.gui = gui;
+    public LoginController(MainFrame owner, LoginPanel gui) {
         this.root = owner;
+        this.gui = gui;
         gui.addActionListener(this);
     }
 
@@ -31,7 +29,6 @@ public class LoginController implements ActionListener{
             if(user != null){
                 root.setAuthenticatedUser(user);
                 root.showCategoriesPage();
-                return;
             }
             else{
                 gui.displayError("Invalid login credentials.");

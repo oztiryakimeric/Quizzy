@@ -1,6 +1,7 @@
 package main.gui;
 
 import main.Game;
+import main.core.CategoryListController;
 import main.core.LoginController;
 import main.database.Category;
 import main.database.User;
@@ -17,25 +18,21 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 600);
 
-        //showNewUserPage();
         showLoginPage();
-
-
-        if (currentPanel != null)
-            this.add(currentPanel);
 
         this.setVisible(true);
     }
 
     private void drawPanel(JPanel panel){
-        getContentPane().removeAll();
         currentPanel = panel;
-        revalidate();
+        setContentPane(currentPanel);
+        invalidate();
+        validate();
     }
 
     public void showLoginPage() {
         LoginPanel panel = new LoginPanel();
-        LoginController controller = new LoginController(panel, this);
+        LoginController controller = new LoginController(this, panel);
         drawPanel(panel);
     }
 
@@ -44,7 +41,9 @@ public class MainFrame extends JFrame {
     }
 
     public void showCategoriesPage() {
-        drawPanel(new CategoryListPanel(this));
+        CategoryListPanel panel = new CategoryListPanel();
+        CategoryListController controller = new CategoryListController(this, panel);
+        drawPanel(panel);
     }
 
     public void showQuizPage(Category category) {

@@ -11,34 +11,40 @@ import java.util.*;
 import java.util.List;
 
 
-public class QuizPanel extends JPanel implements QuizListener{
+public class QuizPanel extends JPanel{
     private JFrame parentView;
-    private QuizController controller;
     private JLabel timerLabel;
-    private JLabel currentPoint;
+    private JLabel pointLabel;
     private JLabel questionLabel;
     private List<JButton> answerButtons;
     private Quiz quiz;
 
     public QuizPanel(JFrame owner, User user, Category category) {
+        this.parentView = owner;
+
         quiz = Quiz.getQuiz(category);
-        questionLabel = new JLabel();
+
         answerButtons = new ArrayList<JButton>();
+        initializeViews();
+        System.out.println("Quiz Panel opened");
     }
 
     private void initializeViews() {
-
+        questionLabel = new JLabel();
         timerLabel = new JLabel("Time: 60");
-        currentPoint = new JLabel("Score: 0");
-        answerButtons = new ArrayList<JButton>();
+        pointLabel = new JLabel("Score: 0");
+
         JPanel qaPanel = new JPanel();
         qaPanel.setLayout(new GridLayout(2,1));
+
         JPanel questionPanel = new JPanel();
         questionPanel.setLayout(new GridBagLayout());
         questionPanel.add(questionLabel);
         qaPanel.add(questionPanel);
+
         JPanel answerPanel = new JPanel();
         JPanel answers = new JPanel();
+
         answers.setLayout(new GridBagLayout());
         answerPanel.setLayout(new GridLayout(2,2));
         for (int i = 0; i< answerButtons.size(); i++){
@@ -51,62 +57,32 @@ public class QuizPanel extends JPanel implements QuizListener{
         JPanel scorePanel = new JPanel();
         scorePanel.setLayout(new GridBagLayout());
         timePanel.add(timerLabel);
-        scorePanel.add(currentPoint);
+        scorePanel.add(pointLabel);
         this.setLayout(new BorderLayout());
         this.add(scorePanel, BorderLayout.NORTH);
         this.add(qaPanel, BorderLayout.CENTER);
         this.add(timePanel, BorderLayout.SOUTH);
-
-    }
-
-    private void questionAnswered(String answer) { //buna gerek kalmadı
-    }
-
-    private JButton answerSelected() {
-        for(int i = 0; i < answerButtons.size(); i++) {
-            if(answerButtons.get(i).isSelected()) {
-                return answerButtons.get(i);
-            }
-        }
-        return null;
     }
 
     public void addActionListener(ActionListener listener){
-        answerSelected().addActionListener(listener);
+        for(JButton button: answerButtons)
+            button.addActionListener(listener);
     }
 
-    @Override
     public void updateTimer(String time) {
-        timerLabel.setText(time);
+        timerLabel.setText("Time: " + time);
     }
 
-    @Override
     public void updatePoint(int point) {
-        currentPoint.setText(Integer.toString(point));
+        pointLabel.setText("Score: " + Integer.toString(point));
     }
 
-    public void updateQuestion(Question question){ //bu methodu conrtroller kullanacak eğer cevap doğruysa question ı update edecek
-        List<Choice> choices = quiz.getNextQuestion().getChoiceList();
+    public void updateQuestion(Question question){
+        List<Choice> choices = question.getChoiceList();
         questionLabel.setText(question.getText());
-        answerButtons.clear();
+
         for(int i=0; i<choices.size(); i++){
-            answerButtons.add(new JButton(choices.get(i).getText()));
+            answerButtons.get(i).setText(choices.get(i).getText());
         }
-
-    }
-
-    @Override
-    public void displayCorrectResult() { //bunları direk salalım
-
-    }
-
-    @Override
-    public void displayWrongResult(String correctAnswer) {
-        //yanlış cevapta quiz bitsin cevap mevap uğraşmayalım allasen
-    }
-
-    @Override
-    public void finishQuiz() {
-        //ne yapıcağımızı anladık ama nasıl yapacağımızı anlayamadık :)))))
     }
 }

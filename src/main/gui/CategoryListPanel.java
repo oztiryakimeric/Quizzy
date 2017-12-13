@@ -1,6 +1,5 @@
 package main.gui;
 
-import main.core.CategoryListController;
 import main.database.Category;
 
 import javax.swing.*;
@@ -9,56 +8,38 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
-/**
- *
- */
+
 public class CategoryListPanel extends JPanel {
-    private JFrame parentView;
-    private CategoryListController controller;
     private List<Category> categoryList;
-    private List<JButton> categoryButtons;
+    private List<CategoryButton> categoryButtons;
 
-
-    public CategoryListPanel(JFrame owner) {
+    public CategoryListPanel() {
         categoryList = Category.getAll();
-        categoryButtons = new ArrayList<JButton>() ;
+        categoryButtons = new ArrayList<>() ;
         initializeViews();
     }
+
     private void initializeViews() {
-        for(int i = 0; i < categoryList.size(); i++) {
-            categoryButtons.add(new JButton(categoryList.get(i).getName()));
-        }
-        JPanel categories = new JPanel();
-        categories.setLayout(new GridLayout(6,1));
-        for(int i = 0; i < categoryButtons.size(); i++) {
-            categories.add(categoryButtons.get(i));
-        }
-        this.setLayout(new GridBagLayout());
-        this.add(categories);
-    }
+        setLayout(new GridLayout(2,3));
 
-    private Category categorySelected(Category category) {
-       return null;// bu methoda neden ihtiyaç var anlayamadık
-    }
-
-    private JButton buttonIsSelected() {
-        for(int i = 0; i < categoryButtons.size(); i++) {
-            if(categoryButtons.get(i).isSelected()) {
-                return categoryButtons.get(i);
-            }
+        for(Category category: categoryList) {
+            CategoryButton button = new CategoryButton(category);
+            this.add(button);
+            categoryButtons.add(button);
         }
-        return null;
     }
 
     public void addActionListener(ActionListener listener){
-        buttonIsSelected().addActionListener(listener);
+        for(CategoryButton button: categoryButtons)
+            button.addActionListener(listener);
     }
 
     public List<Category> getCategoryList() {
         return categoryList;
     }
 
-    public List<JButton> getCategoryButtons() {
+    public List<CategoryButton> getCategoryButtons() {
         return categoryButtons;
     }
 }
+

@@ -6,7 +6,7 @@ public class Question {
     private String text;
     private List<Choice> choiceList = new ArrayList<>();
 
-    public Question(String question, List<String> wrongAnswers, String correctAnswer) {
+    public Question(String question, String[] wrongAnswers, String correctAnswer) {
         this.text = question;
         shuffleQuestions(wrongAnswers, correctAnswer);
     }
@@ -23,9 +23,9 @@ public class Question {
         return this.text;
     }
 
-    private void shuffleQuestions(List<String> wrongAnswers, String correctAnswer) {
-        for(String text: wrongAnswers)
-            choiceList.add(Choice.wrongOne(text));
+    private void shuffleQuestions(String[] wrongAnswers, String correctAnswer) {
+        for(int i=0; i<wrongAnswers.length; i++)
+            choiceList.add(Choice.wrongOne(wrongAnswers[i]));
         choiceList.add(Choice.correctOne(correctAnswer));
         Collections.shuffle(choiceList);
     }

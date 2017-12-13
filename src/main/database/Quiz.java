@@ -10,6 +10,7 @@ public class Quiz {
 
     public Quiz(Stack<Question> questionList) {
         this.questionStack = questionList;
+        this.currentQuestion = questionStack.pop();
     }
 
     public static Quiz getQuiz(Category category) {

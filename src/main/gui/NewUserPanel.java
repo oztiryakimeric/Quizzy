@@ -11,7 +11,7 @@ import java.util.*;
 /**
  *
  */
-public class NewUserPanel extends JPanel implements NewUserListener{
+public class NewUserPanel extends JPanel{
     private JFrame parentView;
     private NewUserController controller;
     private JTextField usernameTextField;
@@ -82,17 +82,7 @@ public class NewUserPanel extends JPanel implements NewUserListener{
         return User.create(username,password,email);
     }
 
-    private void displayError() {
-        JOptionPane.showMessageDialog(null,"User cannot be created.");
-    }
-
-    @Override
-    public void newUserCreated(User user) {
-
-    }
-
-    @Override
-    public void errorOccured(String message) {
-        JOptionPane.showMessageDialog(null, message);
+    private void displayError(String error) {
+        JOptionPane.showMessageDialog(null,error);
     }
 }
