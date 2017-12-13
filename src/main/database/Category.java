@@ -16,4 +16,8 @@ public class Category {
     public static List<Category> getAll() {
         return Api.getAllCategories();
     }
+
+    public String getName() {
+        return name;
+    }
 }
