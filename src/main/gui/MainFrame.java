@@ -3,6 +3,7 @@ package main.gui;
 import main.Game;
 import main.core.CategoryListController;
 import main.core.LoginController;
+import main.core.NewUserController;
 import main.database.Category;
 import main.database.User;
 
@@ -37,7 +38,9 @@ public class MainFrame extends JFrame {
     }
 
     public void showNewUserPage() {
-        drawPanel(new NewUserPanel(this));
+        NewUserPanel panel = new NewUserPanel();
+        NewUserController controller = new NewUserController(this, panel);
+        drawPanel(panel);
     }
 
     public void showCategoriesPage() {

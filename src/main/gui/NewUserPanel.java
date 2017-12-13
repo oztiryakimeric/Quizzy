@@ -1,30 +1,24 @@
 package main.gui;
 
-import main.core.NewUserController;
-import main.database.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.*;
 
-/**
- *
- */
 public class NewUserPanel extends JPanel{
-    private JFrame parentView;
-    private NewUserController controller;
     private JTextField usernameTextField;
     private JTextField passwordTextField;
     private JTextField password2TextField;
     private JTextField emailTextField;
     private JButton registerButton;
 
-    public NewUserPanel(JFrame owner) {
+    public NewUserPanel() {
         initializeViews();
     }
 
     private void initializeViews() {
+        this.setLayout(new GridBagLayout());
+
         usernameTextField = new JTextField(20);
         passwordTextField = new JTextField();
         password2TextField = new JTextField();
@@ -34,10 +28,11 @@ public class NewUserPanel extends JPanel{
         JLabel passwordLabel = new JLabel("Password:");
         JLabel passwordLabel2 = new JLabel("Password:");
         JLabel emailLabel = new JLabel("Email:");
-        this.setLayout(new GridBagLayout());
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout());
         buttonPanel.add(registerButton);
+
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(5,2));
         mainPanel.add(usernameLabel);
@@ -51,35 +46,30 @@ public class NewUserPanel extends JPanel{
         mainPanel.add(new JLabel());
         mainPanel.add(buttonPanel);
         this.add(mainPanel);
+    }
 
+    public boolean isValidPassword(){
+        if(!passwordTextField.getText().equals(password2TextField.getText())){
+            displayError("Passwords didn't match");
+            return false;
+        }
+        return true;
+    }
+
+    public String getUsername(){
+        return usernameTextField.getText();
+    }
+
+    public String getPassword(){
+        return passwordTextField.getText();
+    }
+
+    public String getEmail(){
+        return emailTextField.getText();
     }
 
     public void addActionListener(ActionListener listener){
         registerButton.addActionListener(listener);
-    }
-
-    public JTextField getUsernameTextField() {
-        return usernameTextField;
-    }
-
-    public JTextField getPasswordTextField() {
-        return passwordTextField;
-    }
-
-    public JTextField getPassword2TextField() {
-        return password2TextField;
-    }
-
-    public JTextField getEmailTextField() {
-        return emailTextField;
-    }
-
-    public JButton getRegisterButton() {
-        return registerButton;
-    }
-
-    private User createNewUser(String username, String password, String email) {
-        return User.create(username,password,email);
     }
 
     private void displayError(String error) {
