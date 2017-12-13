@@ -1,13 +1,12 @@
 package main.gui;
 
 import main.Game;
+import main.core.LoginController;
 import main.database.Category;
 import main.database.User;
 
 import javax.swing.*;
 
-//Burada uygulama login page ile baslayacagı ıcın showLoginPage() cagrıldı sadece constructor da. Digerleri panellerden
-//cagrılıcak.
 
 public class MainFrame extends JFrame {
     private JPanel currentPanel;
@@ -19,6 +18,7 @@ public class MainFrame extends JFrame {
         this.setSize(750, 600);
 
         showLoginPage();
+
 
         if (currentPanel != null)
             this.add(currentPanel);
@@ -33,7 +33,9 @@ public class MainFrame extends JFrame {
     }
 
     public void showLoginPage() {
-        drawPanel(new LoginPanel(this));
+        LoginPanel panel = new LoginPanel();
+        LoginController controller = new LoginController(panel, this);
+        drawPanel(panel);
     }
 
     public void showNewUserPage() {
@@ -50,5 +52,9 @@ public class MainFrame extends JFrame {
 
     public void showScorePage() {
         drawPanel(new ScorePanel(this));
+    }
+
+    public void setAuthenticatedUser(User authenticatedUser) {
+        this.authenticatedUser = authenticatedUser;
     }
 }

@@ -8,6 +8,8 @@ public class Api {
     }
 
     public static User getUser(String username, String password) {
+        if(username.equals("meric") && password.equals("123"))
+            return new User(1, "meric", "meric@gmail.com", new Date());
         return null;
     }
 

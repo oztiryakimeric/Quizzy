@@ -4,18 +4,15 @@ import main.core.LoginController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class LoginPanel extends JPanel implements LoginListener{
-    private JFrame parentView;
-    private LoginController controller;
+public class LoginPanel extends JPanel{
     private JTextField usernameTextField;
     private JTextField passwordTextField;
     private JButton loginButton;
     private JButton newUserButton;
 
-    public LoginPanel(JFrame owner) {
-        this.parentView = owner;
-        this.controller = new LoginController(this);
+    public LoginPanel() {
         initializeViews();
     }
 
@@ -50,21 +47,28 @@ public class LoginPanel extends JPanel implements LoginListener{
         this.add(mainPanel);
     }
 
-    private void login(String username, String password) {
-
+    public void displayError(String message) {
+        JOptionPane.showMessageDialog(null, message);
     }
 
-    private void displayError(String message) {
-
+    public void addActionListener(ActionListener listener){
+        loginButton.addActionListener(listener);
+        newUserButton.addActionListener(listener);
     }
 
-    @Override
-    public void loginSuccessfull() {
-
+    public JButton getLoginButton() {
+        return loginButton;
     }
 
-    @Override
-    public void errorOccured(String message) {
+    public JButton getNewUserButton() {
+        return newUserButton;
+    }
 
+    public JTextField getUsernameTextField() {
+        return usernameTextField;
+    }
+
+    public JTextField getPasswordTextField() {
+        return passwordTextField;
     }
 }

@@ -4,30 +4,39 @@ import java.util.*;
 
 
 public class Quiz {
-    private Stack<Question> questionList;
+    private Stack<Question> questionStack;
+    private Question currentQuestion;
     private int point;
 
     public Quiz(Stack<Question> questionList) {
-
+        this.questionStack = questionList;
     }
 
-    public static void getQuiz(Category category) {
-
+    public static Quiz getQuiz(Category category) {
+        return Api.getQuiz(category);
     }
 
     public boolean isFinished() {
-        return false;
+        return questionStack.isEmpty();
     }
 
-    public void getNextQuestion() {
-
+    public Question getNextQuestion() {
+        currentQuestion = questionStack.pop();
+        return currentQuestion;
     }
 
-    public boolean answerQuestion(String choice) {
-        return false;
+    public boolean answerQuestion(Choice choice) {
+        if(currentQuestion.solve(choice)){
+            //Give point...
+            return true;
+        }
+        else{
+            //Finish quiz...
+            return false;
+        }
     }
 
     public int getPoint() {
-        return 0;
+        return point;
     }
 }

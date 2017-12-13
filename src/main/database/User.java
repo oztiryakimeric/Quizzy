@@ -9,7 +9,7 @@ public class User {
     private String email;
     private Date timestamp;
 
-    private User(int id, String username, String email, Date timestamp) {
+    public User(int id, String username, String email, Date timestamp) {
         this.id = id;
         this.username = username;
         this.email = email;

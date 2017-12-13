@@ -11,6 +11,10 @@ public class Question {
         shuffleQuestions(wrongAnswers, correctAnswer);
     }
 
+    public boolean solve(Choice choice){
+        return choice.isCorrect();
+    }
+
     public List<Choice> getChoiceList() {
         return this.choiceList;
     }
@@ -25,22 +29,5 @@ public class Question {
         choiceList.add(Choice.correctOne(correctAnswer));
         Collections.shuffle(choiceList);
     }
-
-    private static class Choice{
-        private String text;
-        private boolean type;
-
-        public static Choice correctOne(String text){
-            return new Choice(text, true);
-        }
-
-        public static Choice wrongOne(String text){
-            return new Choice(text, false);
-        }
-
-        private Choice(String text, boolean type) {
-            this.text = text;
-            this.type = type;
-        }
-    }
 }
+
