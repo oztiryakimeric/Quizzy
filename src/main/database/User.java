@@ -20,6 +20,10 @@ public class User {
         return Api.createUser(username, password, email);
     }
 
+    public String getUsername(){
+        return username;
+    }
+
     public static User authenticate(String username, String password) {
         return Api.getUser(username, password);
     }
