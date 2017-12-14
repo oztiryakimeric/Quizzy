@@ -17,8 +17,5 @@ class UserTest {
     void authenticate (){
         User user = User.authenticate("sezin","dsadad");
         assertEquals(null,user);
-
-
     }
-
 }
