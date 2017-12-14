@@ -13,5 +13,12 @@ class UserTest {
         User user = User.create("meric", "123456", "meric@gmail.com");
         assertEquals(null, user);
     }
+    @Test
+    void authenticate (){
+        User user = User.authenticate("sezin","dsadad");
+        assertEquals(null,user);
+
+
+    }
 
 }
