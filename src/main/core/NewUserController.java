@@ -20,15 +20,25 @@ public class NewUserController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(gui.isValidPassword()){
+        if (e.getSource().equals(gui.getRegisterButton())) {
             try{
-                User user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
-                root.setAuthenticatedUser(user);
-                root.showCategoriesPage();
+            User user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
+            if (user != null) {
+                if(gui.isValidPassword()) {
+                    root.setAuthenticatedUser(user);
+                    root.showCategoriesPage();
+                }
+                else{
+                    gui.displayError("Mismatching passwords!");
+                }
+            } else {
+                gui.displayError("Invalid register credentials.");
             }
-            catch(Exception ex){
-                //if same user registered display error. Api must throw erorr.
-            }
+        } else if (e.getSource().equals(gui.getRegisterButton())) {
+            root.showNewUserPage();
         }
+        catch(Exception e){
+
+            }
     }
 }
