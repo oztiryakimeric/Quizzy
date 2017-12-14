@@ -33,6 +33,7 @@ public class NewUserPanel extends JPanel{
         buttonPanel.setLayout(new GridBagLayout());
         buttonPanel.add(registerButton);
 
+
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(5,2));
         mainPanel.add(usernameLabel);
@@ -72,7 +73,10 @@ public class NewUserPanel extends JPanel{
         registerButton.addActionListener(listener);
     }
 
-    private void displayError(String error) {
+    public void displayError(String error) {
         JOptionPane.showMessageDialog(null,error);
     }
+
+    public JButton getRegisterButton(){ return registerButton ;}
+
 }
