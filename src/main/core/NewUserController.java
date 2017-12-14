@@ -21,14 +21,12 @@ public class NewUserController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(gui.getRegisterButton())) {
-            try{
             User user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
             if (user != null) {
-                if(gui.isValidPassword()) {
+                if (gui.isValidPassword()) {
                     root.setAuthenticatedUser(user);
                     root.showCategoriesPage();
-                }
-                else{
+                } else {
                     gui.displayError("Mismatching passwords!");
                 }
             } else {
@@ -37,8 +35,7 @@ public class NewUserController implements ActionListener{
         } else if (e.getSource().equals(gui.getRegisterButton())) {
             root.showNewUserPage();
         }
-        catch(Exception e){
 
-            }
     }
+
 }
