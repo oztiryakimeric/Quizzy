@@ -25,7 +25,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void getAllTest() { 
+    public void getAllTest() {
         Category c1 = new Category(1, "General Culture", 120);
         Category c2 = new Category(2, "Music", 120);
         Category c3 = new Category(3, "Sport", 120);
