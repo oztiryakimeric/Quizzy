@@ -11,19 +11,25 @@ public class LoginPanel extends JPanel{
     private JTextField passwordTextField;
     private JButton loginButton;
     private JButton newUserButton;
+    private JButton scoresButton;
 
     public LoginPanel() {
         initializeViews();
     }
 
     private void initializeViews() {
-        this.setLayout(new GridBagLayout());
+        this.setLayout(new BorderLayout());
+        JPanel outerPanel = new JPanel();
+        JPanel scorePanel = new JPanel();
+        scorePanel.setLayout(new GridBagLayout());
+        outerPanel.setLayout(new GridBagLayout());
 
         JPanel mainPanel = new JPanel(new GridLayout(3,1));
         usernameTextField = new JTextField(10);
         passwordTextField = new JTextField(10);
         loginButton = new JButton("Login");
         newUserButton = new JButton("New User");
+        scoresButton = new JButton("TOP 10");
         JLabel usernameLabel = new JLabel("Username:");
         JLabel passwordLabel = new JLabel("Password:");
 
@@ -45,7 +51,10 @@ public class LoginPanel extends JPanel{
 
         mainPanel.add(credentialsPanel);
         mainPanel.add(buttonPanel);
-        this.add(mainPanel);
+        outerPanel.add(mainPanel);
+        scorePanel.add(scoresButton);
+        this.add(outerPanel, BorderLayout.CENTER);
+        this.add(scorePanel, BorderLayout.NORTH);
     }
 
     public void displayError(String message) {
@@ -57,12 +66,20 @@ public class LoginPanel extends JPanel{
         newUserButton.addActionListener(listener);
     }
 
+    public void addActionListenertoScoresButton(ActionListener listener){
+        scoresButton.addActionListener(listener);
+    }
+
     public JButton getLoginButton() {
         return loginButton;
     }
 
     public JButton getNewUserButton() {
         return newUserButton;
+    }
+
+    public JButton getScoresButton() {
+        return scoresButton;
     }
 
     public JTextField getUsernameTextField() {
