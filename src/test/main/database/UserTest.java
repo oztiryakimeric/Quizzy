@@ -15,7 +15,7 @@ class UserTest {
     }
     @Test
     void authenticate (){
-        User user = User.authenticate("sezin","dsadad");
+        User user = User.authenticate("sezin","1234");
         assertEquals(null,user);
     }
 }
