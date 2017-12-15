@@ -37,5 +37,8 @@ public class LoginController implements ActionListener{
         else if(e.getSource().equals(gui.getNewUserButton())){
             root.showNewUserPage();
         }
+        else if(e.getSource().equals(gui.getScoresButton())){
+            root.showScorePage();
+        }
     }
 }
