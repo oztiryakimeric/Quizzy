@@ -9,17 +9,17 @@ public class Api {
 
     public static User getUser(String username, String password) {
         if(username.equals("meric") && password.equals("123"))
-            return new User(1, "meric", "meric@gmail.com", new Date());
+            return new User(1, "meric", "meric@gmail.com", 120);
         return null;
     }
 
     public static List<Category> getAllCategories() {
-        Category c1 = new Category(1, "Sport", new Date());
-        Category c2 = new Category(1, "c2", new Date());
-        Category c3 = new Category(1, "c3", new Date());
-        Category c4 = new Category(1, "c4", new Date());
-        Category c5 = new Category(1, "c5", new Date());
-        Category c6 = new Category(1, "c6", new Date());
+        Category c1 = new Category(1, "General Culture", 120);
+        Category c2 = new Category(2, "Music", 120);
+        Category c3 = new Category(3, "Sport", 120);
+        Category c4 = new Category(4, "Science", 120);
+        Category c5 = new Category(5, "Literature", 120);
+        Category c6 = new Category(6, "Geography", 120);
 
         List<Category> tmp = new ArrayList<>();
         tmp.add(c1);

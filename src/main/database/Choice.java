@@ -12,7 +12,7 @@ public class Choice{
         return new Choice(text, false);
     }
 
-    private Choice(String text, boolean type) {
+    public Choice(String text, boolean type) {
         this.text = text;
         this.isCorrect = type;
     }
@@ -24,4 +24,5 @@ public class Choice{
     public boolean isCorrect() {
         return isCorrect;
     }
+
 }

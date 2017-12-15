@@ -7,9 +7,9 @@ public class User {
     private int id;
     private String username;
     private String email;
-    private Date timestamp;
+    private int timestamp;
 
-    public User(int id, String username, String email, Date timestamp) {
+    public User(int id, String username, String email, int timestamp) {
         this.id = id;
         this.username = username;
         this.email = email;

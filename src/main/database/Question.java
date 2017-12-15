@@ -29,5 +29,6 @@ public class Question {
         choiceList.add(Choice.correctOne(correctAnswer));
         Collections.shuffle(choiceList);
     }
+
 }
 

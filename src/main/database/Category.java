@@ -5,9 +5,9 @@ import java.util.*;
 public class Category {
     private int id;
     private String name;
-    private Date timestamp;
+    private int timestamp;
 
-    public Category(int id, String name, Date timestamp) {
+    public Category(int id, String name, int timestamp) {
         this.id = id;
         this.name = name;
         this.timestamp = timestamp;
@@ -20,4 +20,6 @@ public class Category {
     public String getName() {
         return name;
     }
+
+    public int getTimestamp(){ return timestamp; }
 }
