@@ -1,9 +1,28 @@
 package main.database;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class Api {
-    public static User createUser(String username, String password, String email) {
+    static Database db = new Database();
+
+    public static User createUser(String username, String password, String email) throws SQLException {
+        String sql = "SELECT COUNT(id) FROM user WHERE username ='" + username + "' OR email = '" + email + "'";
+        ResultSet rs = db.query(sql);
+        if (rs.getInt(0) > 0){
+            return null;
+        }
+
+        sql = "INSERT INTO user (username, password, email) VALUES ('" + username + "','" + password + "','" + email + "')";
+        rs = db.query(sql);
+
+        if (rs.getBoolean(0)){
+            sql = "SELECT id FROM user ORDER BY id DESC LIMIT 1";
+            rs = db.query(sql);
+            return new User(rs.getInt(0),username,email, System.nanoTime());
+        }
+
         return null;
     }
 
