@@ -26,32 +26,35 @@ public class Api {
         return null;
     }
 
-    public static User getUser(String username, String password) {
-        if(username.equals("meric") && password.equals("123"))
-            return new User(1, "meric", "meric@gmail.com", 120);
+    public static User getUser(String username, String password) throws SQLException {
+
+        String sql = "SELECT COUNT(id) FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+        ResultSet rs = db.query(sql);
+
+        if (rs.getInt(0) == 1){
+            sql = "SELECT id,email,timestamp FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+            rs = db.query(sql);
+            return new User(rs.getInt(0),username,rs.getString(1),rs.getLong(2));
+        }
+
         return null;
     }
 
-    public static List<Category> getAllCategories() {
-        Category c1 = new Category(1, "General Culture", 120);
-        Category c2 = new Category(2, "Music", 120);
-        Category c3 = new Category(3, "Sport", 120);
-        Category c4 = new Category(4, "Science", 120);
-        Category c5 = new Category(5, "Literature", 120);
-        Category c6 = new Category(6, "Geography", 120);
+    public static List<Category> getAllCategories() throws SQLException {
 
+        String sql = "SELECT id,name,timestamp FROM category";
+        ResultSet rs = db.query(sql);
         List<Category> tmp = new ArrayList<>();
-        tmp.add(c1);
-        tmp.add(c2);
-        tmp.add(c3);
-        tmp.add(c4);
-        tmp.add(c5);
-        tmp.add(c6);
-
+        while (rs.next())
+            tmp.add(new Category(rs.getInt(0), rs.getString(1), rs.getLong(2)));
         return tmp;
     }
 
     public static Quiz getQuiz(Category category) {
+
+        int categoryID = category.getId();
+
+
         String[] c1 = {"A)", "B)", "C)"};
         Question q1 = new Question("asdf", c1,":))");
 

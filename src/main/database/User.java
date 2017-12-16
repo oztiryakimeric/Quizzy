@@ -25,7 +25,7 @@ public class User {
         return username;
     }
 
-    public static User authenticate(String username, String password) {
+    public static User authenticate(String username, String password) throws SQLException {
         return Api.getUser(username, password);
     }
 }
