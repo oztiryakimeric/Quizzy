@@ -51,6 +51,10 @@ public class Api {
     }
 
     public static Quiz getQuiz(Category category) {
+
+        int categoryID = category.getId();
+
+
         String[] c1 = {"A)", "B)", "C)"};
         Question q1 = new Question("asdf", c1,":))");
 

@@ -22,5 +22,9 @@ public class Category {
         return name;
     }
 
+    public int getId(){
+        return id;
+    }
+
     public long getTimestamp(){ return timestamp; }
 }
