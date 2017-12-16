@@ -1,8 +1,8 @@
 package main.database;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by oztiryakimeric on 2.12.2017.
