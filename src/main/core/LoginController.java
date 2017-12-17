@@ -48,7 +48,11 @@ public class LoginController implements ActionListener{
             root.showNewUserPage();
         }
         else if(e.getSource().equals(gui.getScoresButton())){
-            root.showScorePage();
+            try {
+                root.showScorePage();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 }

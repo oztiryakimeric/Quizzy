@@ -10,6 +10,7 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.*;
 
 public class ScorePanel extends JPanel {
@@ -22,7 +23,7 @@ public class ScorePanel extends JPanel {
     private HashMap<User,Integer> map;
     private JButton backButton;
 
-    public ScorePanel() {
+    public ScorePanel() throws SQLException {
         users = new User[10];
         scores = new Integer[10];
         //setTable(map);

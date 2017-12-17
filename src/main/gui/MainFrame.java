@@ -56,7 +56,7 @@ public class MainFrame extends JFrame {
         drawPanel(panel);
     }
 
-    public void showScorePage() {
+    public void showScorePage() throws SQLException {
         ScorePanel panel = new ScorePanel();
         ScoreController controller = new ScoreController(this, panel);
         drawPanel(panel);

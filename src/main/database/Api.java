@@ -70,7 +70,7 @@ public class Api {
     }
 
     public static boolean givePoint(User user, int point) throws SQLException {
-        String sql = "UPDATE user SET point += " + point + " WHERE id = " + user.getId();
+        String sql = "UPDATE user SET score += " + point + " WHERE id = " + user.getId();
         int rs = db.query_update(sql);
         if (rs == 1){
             return true;
@@ -78,31 +78,17 @@ public class Api {
         return false;
     }
 
-    public static HashMap<User, Integer> getTop10(){
-        //DATABASEDEN SONRA DEĞİŞECEK ŞİMDİLİK YAPTIK!!!
+    public static HashMap<User, Integer> getTop10() throws SQLException {
+
         HashMap<User, Integer> tmp = new HashMap<>();
-        User u1 = new User(1, "meric", "asdad", 1);
-        User u2 = new User(1, "damla", "asdad", 1);
-        User u3 = new User(1, "batuhan", "asdad", 1);
-        User u4 = new User(1, "sezin", "asdad", 1);
-        User u5 = new User(1, "bengisu", "asdad", 1);
-        User u6 = new User(1, "u6", "asdad", 1);
-        User u7 = new User(1, "u7", "asdad", 1);
-        User u8 = new User(1, "u8", "asdad", 1);
-        User u9 = new User(1, "u9", "asdad", 1);
-        User u10 = new User(1, "u10", "asdad", 1);
 
+        String sql = "SELECT id,email,timestamp,score,username FROM user ORDER BY score DESC LIMIT 10";
+        ResultSet rs = db.query(sql);
 
-        tmp.put(u1, 1000);
-        tmp.put(u2, 900);
-        tmp.put(u3, 800);
-        tmp.put(u4, 700);
-        tmp.put(u5, 600);
-        tmp.put(u6, 500);
-        tmp.put(u7, 400);
-        tmp.put(u8, 300);
-        tmp.put(u9, 200);
-        tmp.put(u10, 100);
+        while (rs.next()){
+            tmp.put(new User(rs.getInt("id"),rs.getString("username"),
+                    rs.getString("email"),rs.getLong("timestamp")),rs.getInt("score"));
+        }
 
         return tmp;
 
