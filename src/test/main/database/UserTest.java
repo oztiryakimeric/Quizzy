@@ -2,6 +2,8 @@ package main.database;
 
 import org.junit.Test;
 
+import java.sql.SQLException;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -9,12 +11,12 @@ import static org.junit.Assert.assertEquals;
  */
 class UserTest {
     @Test
-    void create() {
+    void create() throws SQLException {
         User user = User.create("meric", "123456", "meric@gmail.com");
         assertEquals(null, user);
     }
     @Test
-    void authenticate (){
+    void authenticate () throws SQLException {
         User user = User.authenticate("sezin","1234");
         assertEquals(null,user);
     }

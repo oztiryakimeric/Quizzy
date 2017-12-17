@@ -5,6 +5,7 @@ import main.database.Category;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class CategoryListPanel extends JPanel {
     private List<Category> categoryList;
     private List<CategoryButton> categoryButtons;
 
-    public CategoryListPanel() {
+    public CategoryListPanel() throws SQLException {
         categoryList = Category.getAll();
         categoryButtons = new ArrayList<>() ;
         initializeViews();

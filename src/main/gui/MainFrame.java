@@ -10,6 +10,7 @@ import main.database.Category;
 import main.database.User;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 
 public class MainFrame extends JFrame {
@@ -46,7 +47,7 @@ public class MainFrame extends JFrame {
         drawPanel(panel);
     }
 
-    public void showCategoriesPage() {
+    public void showCategoriesPage() throws SQLException {
         CategoryListPanel panel = new CategoryListPanel();
         CategoryListController controller = new CategoryListController(this, panel);
         drawPanel(panel);

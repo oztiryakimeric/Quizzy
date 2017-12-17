@@ -6,6 +6,7 @@ import main.gui.MainFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class LoginController implements ActionListener{
 
@@ -18,17 +19,26 @@ public class LoginController implements ActionListener{
         gui.addActionListener(this);
     }
 
-    public User authenticate(String username, String password) {
+    public User authenticate(String username, String password) throws SQLException {
         return User.authenticate(username, password);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(gui.getLoginButton())){
-            User user = authenticate(gui.getUsernameTextField().getText(), gui.getPasswordTextField().getText());
+            User user = null;
+            try {
+                user = authenticate(gui.getUsernameTextField().getText(), gui.getPasswordTextField().getText());
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             if(user != null){
                 root.setAuthenticatedUser(user);
-                root.showCategoriesPage();
+                try {
+                    root.showCategoriesPage();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
             }
             else{
                 gui.displayError("Invalid login credentials.");
