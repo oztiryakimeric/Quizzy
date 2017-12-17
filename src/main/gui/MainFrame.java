@@ -1,10 +1,7 @@
 package main.gui;
 
 import main.Game;
-import main.core.CategoryListController;
-import main.core.LoginController;
-import main.core.NewUserController;
-import main.core.QuizController;
+import main.core.*;
 import main.database.Api;
 import main.database.Category;
 import main.database.User;
@@ -60,7 +57,9 @@ public class MainFrame extends JFrame {
     }
 
     public void showScorePage() {
-        drawPanel(new ScorePanel(this));
+        ScorePanel panel = new ScorePanel();
+        ScoreController controller = new ScoreController(this, panel);
+        drawPanel(panel);
     }
 
     public void setAuthenticatedUser(User authenticatedUser) {

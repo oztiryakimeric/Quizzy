@@ -12,7 +12,6 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class ScorePanel extends JPanel {
-    private JFrame parentView;
     private ScoreController controller;
     private JTable scoreTable;
     private User[] users;
@@ -20,11 +19,10 @@ public class ScorePanel extends JPanel {
     private HashMap<User,Integer> map;
     private JButton backButton;
 
-    public ScorePanel(JFrame owner) {
-        this.parentView = owner;
+    public ScorePanel() {
         users = new User[10];
         scores = new Integer[10];
-        setTable(map);
+        //setTable(map);
         initializeViews();
     }
 
