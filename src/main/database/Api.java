@@ -73,4 +73,34 @@ public class Api {
     public static int givePoint(User user, int point) {
         return 0;
     }
+
+    public static HashMap<User, Integer> getTop10(){
+        //DATABASEDEN SONRA DEĞİŞECEK ŞİMDİLİK YAPTIK!!!
+        HashMap<User, Integer> tmp = new HashMap<>();
+        User u1 = new User(1, "meric", "asdad", 1);
+        User u2 = new User(1, "damla", "asdad", 1);
+        User u3 = new User(1, "batuhan", "asdad", 1);
+        User u4 = new User(1, "sezin", "asdad", 1);
+        User u5 = new User(1, "bengisu", "asdad", 1);
+        User u6 = new User(1, "u6", "asdad", 1);
+        User u7 = new User(1, "u7", "asdad", 1);
+        User u8 = new User(1, "u8", "asdad", 1);
+        User u9 = new User(1, "u9", "asdad", 1);
+        User u10 = new User(1, "u10", "asdad", 1);
+
+
+        tmp.put(u1, 1000);
+        tmp.put(u2, 900);
+        tmp.put(u3, 800);
+        tmp.put(u4, 700);
+        tmp.put(u5, 600);
+        tmp.put(u6, 500);
+        tmp.put(u7, 400);
+        tmp.put(u8, 300);
+        tmp.put(u9, 200);
+        tmp.put(u10, 100);
+
+        return tmp;
+
+    }
 }
