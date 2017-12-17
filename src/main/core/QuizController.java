@@ -43,10 +43,14 @@ public class QuizController implements ActionListener{
             }
             else{
                 finishQuiz();
+                mainFrame.showLoginPage();
+
             }
         }
         else{
             finishQuiz();
+            mainFrame.showLoginPage();
+
 
         }
     }
@@ -55,6 +59,7 @@ public class QuizController implements ActionListener{
         timer.stop();
         System.out.println("Quiz Finished");
         gui.displayMessage("Quiz Finished");
+        mainFrame.showLoginPage();
     }
 
     private class TimeCounter{

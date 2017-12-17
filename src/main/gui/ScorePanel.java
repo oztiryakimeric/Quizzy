@@ -43,7 +43,7 @@ public class ScorePanel extends JPanel {
         scrollPane.setViewportView(scoreTable);
         String[] headers = {"Username", "Score"};
         String[][] table = new String[10][2];
-        for(int i=0; i<10; i++){
+        for(int i=0; i<users.length; i++){
             table[i][0] = ((User)(users[i])).getUsername();
             table[i][1] = Integer.toString((Integer)scores[i]);
         }
