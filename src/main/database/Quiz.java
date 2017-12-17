@@ -14,13 +14,10 @@ public class Quiz {
         this.currentQuestion = questionStack.pop();
     }
 
-    public static Quiz getQuiz(Category category) {
-        try {
-            return Api.getQuiz(category);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+
+    public static Quiz getQuiz(Category category) throws SQLException {
+        return Api.getQuiz(category);
+
     }
 
     public boolean isFinished() {
