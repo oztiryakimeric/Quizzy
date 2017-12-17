@@ -1,5 +1,6 @@
 package main.database;
 
+import java.sql.SQLException;
 import java.util.*;
 
 
@@ -13,7 +14,7 @@ public class Quiz {
         this.currentQuestion = questionStack.pop();
     }
 
-    public static Quiz getQuiz(Category category) {
+    public static Quiz getQuiz(Category category) throws SQLException {
         return Api.getQuiz(category);
     }
 

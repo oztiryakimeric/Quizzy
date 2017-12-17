@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class QuizPanel extends JPanel{
     private List<AnswerButton> answerButtons;
     private Quiz quiz;
 
-    public QuizPanel(Category category) {
+    public QuizPanel(Category category) throws SQLException {
         quiz = Quiz.getQuiz(category);
 
         answerButtons = new ArrayList<>();

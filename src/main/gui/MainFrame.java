@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
         drawPanel(panel);
     }
 
-    public void showQuizPage(Category category) {
+    public void showQuizPage(Category category) throws SQLException {
         QuizPanel panel = new QuizPanel(category);
         QuizController controller = new QuizController(this, panel);
         drawPanel(panel);
