@@ -1,5 +1,6 @@
 package main.database;
 
+import java.sql.SQLException;
 import java.util.*;
 
 
@@ -14,7 +15,12 @@ public class Quiz {
     }
 
     public static Quiz getQuiz(Category category) {
-        return Api.getQuiz(category);
+        try {
+            return Api.getQuiz(category);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public boolean isFinished() {

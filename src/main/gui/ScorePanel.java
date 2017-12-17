@@ -1,6 +1,7 @@
 package main.gui;
 
 import main.core.ScoreController;
+import main.database.Api;
 import main.database.User;
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class ScorePanel extends JPanel {
         users = new User[10];
         scores = new Integer[10];
         //setTable(map);
+        map = Api.getTop10();
         initializeViews();
     }
 
@@ -49,13 +51,6 @@ public class ScorePanel extends JPanel {
         tablePanel.add(scoreTable);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
         mainPanel.add(tablePanel, BorderLayout.CENTER);
-    }
-
-    public void setTable(HashMap<User,Integer> map){
-        Set<User> users = map.keySet();
-        Collection<Integer> scores = map.values();
-        this.users = (User[]) users.toArray();
-        this.scores = (Integer[])scores.toArray();
     }
 
     public void addActionListener(ActionListener listener) {
