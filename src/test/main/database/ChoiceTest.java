@@ -20,18 +20,18 @@ import static org.junit.Assert.assertTrue;
 public class ChoiceTest {
     @Test
     public void isCorrectTest(){
-        Choice choice = new Choice("bhjb",true);
+        Choice choice = new Choice("a",true);
         assertEquals(true,choice.isCorrect());
     }
     @Test
     public void isCorrectTest2(){
-        Choice choice = new Choice("bhjb",false);
+        Choice choice = new Choice("a",false);
         assertEquals(false,choice.isCorrect());
     }
     @Test
     public void getTextTest(){
-        Choice choice = new Choice("bhjb",true);
-        assertEquals("bhjb",choice.getText());
+        Choice choice = new Choice("a",true);
+        assertEquals("a",choice.getText());
     }
     @Test
     public void correctOneTest(){

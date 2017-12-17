@@ -21,8 +21,10 @@ public class ScorePanel extends JPanel {
     private JButton backButton;
 
     public ScorePanel(JFrame owner) {
+        this.parentView = owner;
         users = new User[10];
         scores = new Integer[10];
+        setTable(map);
         initializeViews();
     }
 

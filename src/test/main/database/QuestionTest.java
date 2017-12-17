@@ -20,27 +20,27 @@ public class QuestionTest {
     //  private Question initialQuestion;
     @Test
     public void solveTest(){
-        String[] wrongAnswers = {"asd","sdf","sdfg"};
-        Question   question = new Question("bhjb",wrongAnswers,"bjhbjb");
+        String[] wrongAnswers = {"wrong1","wrong2","wrong3"};
+        Question   question = new Question("question1",wrongAnswers,"correctAnswer");
         assertEquals(true,question.solve(new Choice("a",true)));
     }
     @Test
     public void  solveTest1(){
-        String[] wrongAnswers = {"asd","sdf","sdfg"};
-        Question   question = new Question("bhjb",wrongAnswers,"bjhbjb");
+        String[] wrongAnswers = {"wrong1","wrong2","wrong3"};
+        Question   question = new Question("question1",wrongAnswers,"correctAnswer");
         assertFalse(question.solve(new Choice("a",false)));
     }
 
     @Test
     public void getTextTest(){
-        String[] wrongAnswers = {"asd","sdf","sdfg"};
-        Question   question = new Question("bhjb",wrongAnswers,"bjhbjb");
-        assertEquals("bhjb",question.getText());
+        String[] wrongAnswers = {"wrong1","wrong2","wrong3"};
+        Question   question = new Question("question1",wrongAnswers,"correctAnswer");
+        assertEquals("question1",question.getText());
     }
     @Test
     public void getChoiceListTest(){
         String[] wrongAnswers = {"text2","text3","text4"};
-        Question   question = new Question("bhjb",wrongAnswers,"text1");
+        Question   question = new Question("question1",wrongAnswers,"text1");
         List<Choice> choiceList = new ArrayList<>();
 
         Choice choice1 = new Choice("text1",true);
