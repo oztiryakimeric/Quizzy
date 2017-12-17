@@ -50,21 +50,19 @@ public class Api {
         return tmp;
     }
 
-    public static Quiz getQuiz(Category category) {
+    public static Quiz getQuiz(Category category) throws SQLException {
 
         int categoryID = category.getId();
 
-
-        String[] c1 = {"A)", "B)", "C)"};
-        Question q1 = new Question("asdf", c1,":))");
-
-        String[] c2 = {"asdasdas)", "asd)", "asdasd"};
-        Question q2 = new Question("xxxxxx", c2,":((((");
-
+        String sql = "SELECT id,question, c_anwser, w_answer1, w_answer2, w_answer3 FROM question WHERE " +
+                "category_id=" + categoryID +" ORDER BY id DESC LIMIT 10";
+        ResultSet rs = db.query(sql);
         Stack<Question> stack = new Stack<>();
-        stack.push(q1);
-        stack.push(q2);
-
+        while (rs.next()){
+            String[] c1 = {rs.getString("w_answer1"),rs.getString("w_answer2"),rs.getString("w_answer3")};
+            Question q1 = new Question(rs.getString("question"), c1,rs.getString("c_answer"));
+            stack.push(q1);
+        }
         return new Quiz(stack);
     }
 
