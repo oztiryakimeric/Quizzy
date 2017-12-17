@@ -6,6 +6,7 @@ import main.gui.NewUserPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class NewUserController implements ActionListener{
 
@@ -22,10 +23,19 @@ public class NewUserController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(gui.getRegisterButton())) {
             if (gui.isValidPassword()) {
-                User user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
+                User user = null;
+                try {
+                    user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
                 if (user != null) {
                     root.setAuthenticatedUser(user);
-                    root.showCategoriesPage();
+                    try {
+                        root.showCategoriesPage();
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
                 }
                 else
                     gui.displayError(String.format("The user with username %s exists. Chose another one", gui.getUsername()));
