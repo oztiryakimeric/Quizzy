@@ -25,10 +25,16 @@ public class DatabaseChecker {
 
             System.out.println("Creating test query...");
             stmt = (Statement) conn.createStatement();
-            String sql = "SELECT * FROM test_table";
+            String sql = "CREATE TABLE user (\n" +
+                    "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n" +
+                    "username VARCHAR(30) NOT NULL,\n" +
+                    "email VARCHAR(30) NOT NULL,\n" +
+                    "password VARCHAR(50),\n" +
+                    "timestamp LONG\n" +
+                    ")";
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Query executed...");
-
+            System.exit(0);
             while(rs.next())
                 if(rs.getString("test").equals("meric")){
                     System.out.println("**********************");
