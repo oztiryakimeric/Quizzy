@@ -15,8 +15,10 @@ import java.util.*;
 public class ScorePanel extends JPanel {
     private ScoreController controller;
     private JTable scoreTable;
-    private User[] users;
-    private Integer[] scores;
+    //private Object[] userObject = new Object[10];
+    //private Object[] scoreObject = new Object[10];
+    private Object[] users;
+    private Object[] scores;
     private HashMap<User,Integer> map;
     private JButton backButton;
 
@@ -29,28 +31,36 @@ public class ScorePanel extends JPanel {
     }
 
     public void initializeViews() {
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
+        setTable();
+        this.setLayout(new BorderLayout());
         backButton = new JButton("BACK");
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridBagLayout());
-        buttonPanel.add(backButton);
-        JPanel tablePanel = new JPanel();
-        tablePanel.setLayout(new GridBagLayout());
+        buttonPanel.setLayout(new BorderLayout());
+        buttonPanel.add(backButton, BorderLayout.EAST);
         scoreTable = new JTable();
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewportView(scoreTable);
         String[] headers = {"Username", "Score"};
         String[][] table = new String[10][2];
         for(int i=0; i<10; i++){
-            table[i][0] = users[i].getUsername();
-            table[i][1] = Integer.toString(scores[i]);
+            table[i][0] = ((User)(users[i])).getUsername();
+            table[i][1] = Integer.toString((Integer)scores[i]);
         }
         TableModel tableModel = new DefaultTableModel(table, headers);
         scoreTable.setModel(tableModel);
-        tablePanel.add(scoreTable);
-        mainPanel.add(buttonPanel, BorderLayout.NORTH);
-        mainPanel.add(tablePanel, BorderLayout.CENTER);
+        this.add(buttonPanel, BorderLayout.NORTH);
+        JPanel panel = new JPanel();
+        this.add(scoreTable, BorderLayout.CENTER);
+        panel.setPreferredSize(new Dimension(100,380));
+        this.add(panel,BorderLayout.SOUTH);
+
+    }
+
+    private void setTable(){
+        Set<User> users = map.keySet();
+        Collection<Integer> scores = map.values();
+        this.users =  users.toArray();
+        this.scores =  scores.toArray();
     }
 
     public void addActionListener(ActionListener listener) {

@@ -21,7 +21,7 @@ public class LoginPanel extends JPanel{
         this.setLayout(new BorderLayout());
         JPanel outerPanel = new JPanel();
         JPanel scorePanel = new JPanel();
-        scorePanel.setLayout(new GridBagLayout());
+        scorePanel.setLayout(new BorderLayout());
         outerPanel.setLayout(new GridBagLayout());
 
         JPanel mainPanel = new JPanel(new GridLayout(3,1));
@@ -53,7 +53,7 @@ public class LoginPanel extends JPanel{
         mainPanel.add(credentialsPanel);
         mainPanel.add(buttonPanel);
         outerPanel.add(mainPanel);
-        scorePanel.add(scoresButton);
+        scorePanel.add(scoresButton, BorderLayout.EAST);
         this.add(outerPanel, BorderLayout.CENTER);
         this.add(scorePanel, BorderLayout.NORTH);
     }
