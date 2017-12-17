@@ -16,9 +16,8 @@ public class Api {
         }
 
         sql = "INSERT INTO user (username, password, email) VALUES ('" + username + "','" + password + "','" + email + "')";
-        rs = db.query(sql);
-        rs.next();
-        if (rs.getBoolean(1)){
+        int res = db.query_update(sql);
+        if (res == 1){
             sql = "SELECT id FROM user ORDER BY id DESC LIMIT 1";
             rs = db.query(sql);
             rs.next();
@@ -70,8 +69,13 @@ public class Api {
         return new Quiz(stack);
     }
 
-    public static int givePoint(User user, int point) {
-        return 0;
+    public static boolean givePoint(User user, int point) throws SQLException {
+        String sql = "UPDATE user SET point += " + point + " WHERE id = " + user.getId();
+        int rs = db.query_update(sql);
+        if (rs == 1){
+            return true;
+        }
+        return false;
     }
 
     public static HashMap<User, Integer> getTop10(){
