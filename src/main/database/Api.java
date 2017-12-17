@@ -64,7 +64,6 @@ public class Api {
             stack.push(q1);
         }
         return new Quiz(stack);
-        
     }
 
     public static int givePoint(User user, int point) {
