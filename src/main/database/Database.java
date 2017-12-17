@@ -35,6 +35,12 @@ public class Database {
         return rs;
     }
 
+    public int query_update(String sql) throws SQLException {
+        stmt = (Statement) conn.createStatement();
+        int rs = stmt.executeUpdate(sql);
+        return rs;
+    }
+
     /**
     public static void main(String[] args) throws SQLException {
         Database db = new Database();
