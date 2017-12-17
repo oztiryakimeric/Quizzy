@@ -71,4 +71,15 @@ public class Api {
     public static int givePoint(User user, int point) {
         return 0;
     }
+
+    public static HashMap<User, Integer> getTop10(){
+        HashMap<User, Integer> tmp = new HashMap<>();
+        User u1 = new User(1, "meric", "asdad", 1);
+        User u2 = new User(1, "damla", "asdad", 1);
+
+        tmp.put(u1, 150);
+        tmp.put(u2, 50);
+        return tmp;
+
+    }
 }
