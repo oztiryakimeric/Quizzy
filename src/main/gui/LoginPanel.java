@@ -65,9 +65,6 @@ public class LoginPanel extends JPanel{
     public void addActionListener(ActionListener listener){
         loginButton.addActionListener(listener);
         newUserButton.addActionListener(listener);
-    }
-
-    public void addActionListenertoScoresButton(ActionListener listener){
         scoresButton.addActionListener(listener);
     }
 
