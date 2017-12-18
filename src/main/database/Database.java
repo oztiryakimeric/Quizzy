@@ -40,16 +40,4 @@ public class Database {
         int rs = stmt.executeUpdate(sql);
         return rs;
     }
-
-    /**
-    public static void main(String[] args) throws SQLException {
-        Database db = new Database();
-        ResultSet result = db.query("Show tables");
-
-        while (result.next()){
-            System.out.println(result.getString(1));
-        }
-    }
-     **/
-
 }

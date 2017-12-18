@@ -27,7 +27,6 @@ public class QuizController implements ActionListener{
         timer.start();
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         AnswerButton answerButton = (AnswerButton) e.getSource();
@@ -41,24 +40,17 @@ public class QuizController implements ActionListener{
                 gui.updateQuestion(quiz.getNextQuestion());
                 timer.reset();
             }
-            else{
+            else
                 finishQuiz();
-                mainFrame.showLoginPage();
-
-            }
         }
-        else{
+        else
             finishQuiz();
-            mainFrame.showLoginPage();
-
-
-        }
     }
 
     private void finishQuiz(){
         timer.stop();
-        System.out.println("Quiz Finished");
         gui.displayMessage("Quiz Finished");
+
         mainFrame.showLoginPage();
     }
 

@@ -18,7 +18,7 @@ public class ScorePanel extends JPanel {
     private HashMap<Integer,User> map;
     private JButton backButton;
 
-    public ScorePanel() throws SQLException {
+    public ScorePanel(){
         users = new User[10];
         scores = new Integer[10];
         //setTable(map);

@@ -14,8 +14,7 @@ public class Quiz {
         this.currentQuestion = questionStack.pop();
     }
 
-
-    public static Quiz getQuiz(Category category) throws SQLException {
+    public static Quiz getQuiz(Category category){
         return Api.getQuiz(category);
 
     }

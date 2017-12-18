@@ -17,8 +17,16 @@ public class User {
         this.timestamp = timestamp;
     }
 
-    public static User create(String username, String password, String email) throws SQLException {
+    public static User create(String username, String password, String email){
         return Api.createUser(username, password, email);
+    }
+
+    public static User authenticate(String username, String password){
+        return Api.getUser(username, password);
+    }
+
+    public void givePoint(int amount) throws SQLException {
+        Api.givePoint(this, amount);
     }
 
     public String getUsername(){
@@ -27,10 +35,6 @@ public class User {
 
     public int getId(){
         return id;
-    }
-
-    public static User authenticate(String username, String password) throws SQLException {
-        return Api.getUser(username, password);
     }
 
 }

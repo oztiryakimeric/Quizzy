@@ -14,7 +14,7 @@ public class Category {
         this.timestamp = timestamp;
     }
 
-    public static List<Category> getAll() throws SQLException {
+    public static List<Category> getAll(){
         return Api.getAllCategories();
     }
 

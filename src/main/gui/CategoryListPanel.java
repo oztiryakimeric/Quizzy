@@ -14,7 +14,7 @@ public class CategoryListPanel extends JPanel {
     private List<Category> categoryList;
     private List<CategoryButton> categoryButtons;
 
-    public CategoryListPanel() throws SQLException {
+    public CategoryListPanel(){
         categoryList = Category.getAll();
         categoryButtons = new ArrayList<>() ;
         initializeViews();
@@ -23,8 +23,8 @@ public class CategoryListPanel extends JPanel {
     private void initializeViews() {
         setLayout(new GridLayout(2,3));
 
-        for(Category category: categoryList) {
-            CategoryButton button = new CategoryButton(category);
+        for(int i=0; i<6; i++) {
+            CategoryButton button = new CategoryButton(categoryList.get(i));
             this.add(button);
             categoryButtons.add(button);
         }

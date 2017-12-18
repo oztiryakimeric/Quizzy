@@ -23,22 +23,14 @@ public class NewUserController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(gui.getRegisterButton())) {
             if (gui.isValidPassword()) {
-                User user = null;
-                try {
-                    user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                User user = User.create(gui.getUsername(), gui.getPassword(), gui.getEmail());
+
                 if (user != null) {
                     root.setAuthenticatedUser(user);
-                    try {
-                        root.showCategoriesPage();
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
+                    root.showCategoriesPage();
                 }
                 else
-                    gui.displayError(String.format("This username or password is already in use."));
+                    gui.displayError("This username or password is already in use.");
             }
             else
                 gui.displayError("Mismatching passwords!");

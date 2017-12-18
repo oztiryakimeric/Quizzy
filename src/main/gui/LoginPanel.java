@@ -40,10 +40,8 @@ public class LoginPanel extends JPanel{
         buttonPanel.add(new JLabel("                    "));
         buttonPanel.add(loginButton);
 
-
         JPanel credentialsPanel = new JPanel();
         credentialsPanel.setLayout(new GridLayout(2,2));
-
 
         credentialsPanel.add(usernameLabel);
         credentialsPanel.add(usernameTextField);

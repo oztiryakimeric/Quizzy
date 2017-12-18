@@ -44,19 +44,19 @@ public class MainFrame extends JFrame {
         drawPanel(panel);
     }
 
-    public void showCategoriesPage() throws SQLException {
+    public void showCategoriesPage(){
         CategoryListPanel panel = new CategoryListPanel();
         CategoryListController controller = new CategoryListController(this, panel);
         drawPanel(panel);
     }
 
-    public void showQuizPage(Category category) throws SQLException {
+    public void showQuizPage(Category category){
         QuizPanel panel = new QuizPanel(category);
         QuizController controller = new QuizController(this, panel);
         drawPanel(panel);
     }
 
-    public void showScorePage() throws SQLException {
+    public void showScorePage(){
         ScorePanel panel = new ScorePanel();
         ScoreController controller = new ScoreController(this, panel);
         drawPanel(panel);

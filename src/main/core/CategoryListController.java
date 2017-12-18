@@ -22,11 +22,9 @@ public class CategoryListController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         CategoryButton button = (CategoryButton) e.getSource();
-        try {
-            root.showQuizPage(button.getCategory());
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        }
+        root.showQuizPage(button.getCategory());
+
     }
 }

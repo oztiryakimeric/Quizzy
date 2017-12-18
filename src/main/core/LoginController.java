@@ -19,7 +19,7 @@ public class LoginController implements ActionListener{
         gui.addActionListener(this);
     }
 
-    public User authenticate(String username, String password) throws SQLException {
+    public User authenticate(String username, String password){
         return User.authenticate(username, password);
     }
 
@@ -27,32 +27,19 @@ public class LoginController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(gui.getLoginButton())){
             User user = null;
-            try {
-                user = authenticate(gui.getUsernameTextField().getText(), gui.getPasswordTextField().getText());
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
+            user = authenticate(gui.getUsernameTextField().getText(), gui.getPasswordTextField().getText());
+
             if(user != null){
                 root.setAuthenticatedUser(user);
-                try {
-                    root.showCategoriesPage();
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                root.showCategoriesPage();
             }
-            else{
+            else
                 gui.displayError("Invalid login credentials.");
-            }
         }
-        else if(e.getSource().equals(gui.getNewUserButton())){
+        else if(e.getSource().equals(gui.getNewUserButton()))
             root.showNewUserPage();
-        }
-        else if(e.getSource().equals(gui.getScoresButton())){
-            try {
-                root.showScorePage();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
+        else if(e.getSource().equals(gui.getScoresButton()))
+            root.showScorePage();
+
     }
 }

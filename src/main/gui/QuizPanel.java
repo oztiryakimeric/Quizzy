@@ -19,7 +19,7 @@ public class QuizPanel extends JPanel{
     private List<AnswerButton> answerButtons;
     private Quiz quiz;
 
-    public QuizPanel(Category category) throws SQLException {
+    public QuizPanel(Category category){
         quiz = Quiz.getQuiz(category);
 
         answerButtons = new ArrayList<>();
@@ -95,15 +95,15 @@ public class QuizPanel extends JPanel{
             answerButtons.get(i).setChoice(choices.get(i));
     }
 
+    public void displayMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
+    }
+
     public JLabel getTimerLabel() {
         return timerLabel;
     }
 
     public Quiz getQuiz() {
         return quiz;
-    }
-
-    public void displayMessage(String message){
-        JOptionPane.showMessageDialog(null, message);
     }
 }
