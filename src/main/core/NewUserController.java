@@ -38,7 +38,7 @@ public class NewUserController implements ActionListener{
                     }
                 }
                 else
-                    gui.displayError(String.format("The user with username %s exists. Chose another one", gui.getUsername()));
+                    gui.displayError(String.format("This username or password is already in use."));
             }
             else
                 gui.displayError("Mismatching passwords!");
