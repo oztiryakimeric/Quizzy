@@ -3,27 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5f2ac3b8-6886-4c57-bc49-a2340d90129e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Game.java" afterPath="$PROJECT_DIR$/src/main/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/core/CategoryListController.java" afterPath="$PROJECT_DIR$/src/main/core/CategoryListController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/core/LoginController.java" afterPath="$PROJECT_DIR$/src/main/core/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/core/NewUserController.java" afterPath="$PROJECT_DIR$/src/main/core/NewUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/core/QuizController.java" afterPath="$PROJECT_DIR$/src/main/core/QuizController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/core/ScoreController.java" afterPath="$PROJECT_DIR$/src/main/core/ScoreController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/Api.java" afterPath="$PROJECT_DIR$/src/main/database/Api.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/Category.java" afterPath="$PROJECT_DIR$/src/main/database/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/Database.java" afterPath="$PROJECT_DIR$/src/main/database/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/Question.java" afterPath="$PROJECT_DIR$/src/main/database/Question.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/Quiz.java" afterPath="$PROJECT_DIR$/src/main/database/Quiz.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/database/User.java" afterPath="$PROJECT_DIR$/src/main/database/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui/CategoryListPanel.java" afterPath="$PROJECT_DIR$/src/main/gui/CategoryListPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui/LoginPanel.java" afterPath="$PROJECT_DIR$/src/main/gui/LoginPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui/MainFrame.java" afterPath="$PROJECT_DIR$/src/main/gui/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui/QuizPanel.java" afterPath="$PROJECT_DIR$/src/main/gui/QuizPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui/ScorePanel.java" afterPath="$PROJECT_DIR$/src/main/gui/ScorePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/main/database/CategoryTest.java" afterPath="$PROJECT_DIR$/src/test/main/database/CategoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/main/database/ChoiceTest.java" afterPath="$PROJECT_DIR$/src/test/main/database/ChoiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/main/database/QuestionTest.java" afterPath="$PROJECT_DIR$/src/test/main/database/QuestionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/main/database/UserTest.java" afterPath="$PROJECT_DIR$/src/test/main/database/UserTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,22 +21,38 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Game.java">
+      <file leaf-file-name="ScorePanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/gui/ScorePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/database/Api.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="94" column="58" lean-forward="false" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+            <state relative-caret-position="457">
+              <caret line="103" column="29" lean-forward="false" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/database/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+              <folding>
+                <element signature="e#710#711#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
+                <element signature="e#964#965#0" expanded="true" />
+                <element signature="e#998#999#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/main/gui/CategoryListPanel.java" />
         <option value="$PROJECT_DIR$/src/main/database/Category.java" />
         <option value="$PROJECT_DIR$/src/main/database/Quiz.java" />
-        <option value="$PROJECT_DIR$/src/main/gui/ScorePanel.java" />
         <option value="$PROJECT_DIR$/src/main/core/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/core/NewUserController.java" />
         <option value="$PROJECT_DIR$/src/main/database/Database.java" />
@@ -108,6 +105,7 @@
         <option value="$PROJECT_DIR$/src/main/core/QuizController.java" />
         <option value="$PROJECT_DIR$/src/main/database/User.java" />
         <option value="$PROJECT_DIR$/src/main/database/Api.java" />
+        <option value="$PROJECT_DIR$/src/main/gui/ScorePanel.java" />
       </list>
     </option>
   </component>
@@ -932,7 +930,7 @@
       <workItem from="1513524344429" duration="272000" />
       <workItem from="1513547657762" duration="573000" />
       <workItem from="1513551502562" duration="66000" />
-      <workItem from="1513628079542" duration="2272000" />
+      <workItem from="1513628079542" duration="3264000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring...">
       <created>1513022601860</created>
@@ -1004,7 +1002,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513629723364</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="User score can be updated from now on.">
+      <created>1513630473832</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1513630473832</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1040,7 +1045,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16635000" />
+    <option name="totallyTimeSpent" value="17627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="991" extended-state="6" />
@@ -1092,7 +1097,8 @@
     <MESSAGE value="QuizController implemented" />
     <MESSAGE value="Changes on api.java" />
     <MESSAGE value="Exceptions handling moved to database layer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Exceptions handling moved to database layer." />
+    <MESSAGE value="User score can be updated from now on." />
+    <option name="LAST_COMMIT_MESSAGE" value="User score can be updated from now on." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1328,8 +1334,8 @@
         <state relative-caret-position="105">
           <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding>
-            <element signature="e#150#151#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#150#151#0" expanded="false" />
+            <element signature="e#195#196#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1439,14 +1445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gui/ScorePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="15" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/gui/QuizPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1481,16 +1479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/database/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#730#731#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1499,10 +1487,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/database/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="e#710#711#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/database/Api.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="94" column="58" lean-forward="false" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+        <state relative-caret-position="457">
+          <caret line="103" column="29" lean-forward="false" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gui/ScorePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

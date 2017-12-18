@@ -9,55 +9,47 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 
 public class ScorePanel extends JPanel {
     private JTable scoreTable;
-    private Object[] users;
-    private Object[] scores;
-    private HashMap<Integer,User> map;
+    List<User> userList;
     private JButton backButton;
 
     public ScorePanel(){
-        users = new User[10];
-        scores = new Integer[10];
-        //setTable(map);
-        map = Api.getTop10();
+        userList = Api.getTop10();
         initializeViews();
+        populateTable();
     }
 
     public void initializeViews() {
-        setTable();
+        scoreTable = new JTable();
+
         this.setLayout(new BorderLayout());
         backButton = new JButton("BACK");
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
         buttonPanel.add(backButton, BorderLayout.EAST);
-        scoreTable = new JTable();
+
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewportView(scoreTable);
-        String[] headers = {"Username", "Score"};
-        String[][] table = new String[10][2];
-        for(int i=0; i<users.length; i++){
-            table[i][0] = (map.get(scores[i])).getUsername();
-            table[i][1] = Integer.toString((Integer)scores[i]);
-        }
-        TableModel tableModel = new DefaultTableModel(table, headers);
-        scoreTable.setModel(tableModel);
+
         this.add(buttonPanel, BorderLayout.NORTH);
-        JPanel panel = new JPanel();
         this.add(scoreTable, BorderLayout.CENTER);
-        panel.setPreferredSize(new Dimension(100,380));
-        this.add(panel,BorderLayout.SOUTH);
 
     }
 
-    private void setTable(){
-        Collection<User> users = map.values();
-        Set<Integer> scores = map.keySet();
-        this.users =  users.toArray();
-        this.scores =  scores.toArray();
-        Arrays.sort(this.scores);
-        Collections.reverse(Arrays.asList(this.scores));
+    private void populateTable(){
+        String[] headers = {"Username", "Score"};
+        String[][] table = new String[10][3];
+
+        for(int i=0; i<userList.size(); i++){
+            table[i][0] = userList.get(i).getUsername();
+            table[i][1] = String.valueOf(userList.get(i).getPoint());
+        }
+        TableModel tableModel = new DefaultTableModel(table, headers);
+        scoreTable.setModel(tableModel);
     }
 
     public void addActionListener(ActionListener listener) {

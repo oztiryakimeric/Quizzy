@@ -8,6 +8,7 @@ public class User {
     private String username;
     private String email;
     private long timestamp;
+    private int point;
 
     public User(int id, String username, String email, long timestamp) {
         this.id = id;
@@ -36,4 +37,11 @@ public class User {
         return id;
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
 }

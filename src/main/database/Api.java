@@ -101,20 +101,20 @@ public class Api {
         }
     }
 
-    public static HashMap<Integer, User> getTop10(){
+    public static List<User> getTop10(){
         try{
-            HashMap<Integer, User> tmp = new HashMap<>();
+            List<User> users = new ArrayList<>(10);
 
             String sql = "SELECT id,email,timestamp,score,username FROM user ORDER BY score DESC LIMIT 10";
             ResultSet rs = db.query(sql);
 
             while (rs.next()){
-                tmp.put(rs.getInt("score"),new User(rs.getInt("id"),rs.getString("username"),
-                        rs.getString("email"),rs.getLong("timestamp")));
+                User user = new User(rs.getInt("id"),rs.getString("username"),
+                        rs.getString("email"),rs.getLong("timestamp"));
+                user.setPoint(rs.getInt("score"));
+                users.add(user);
             }
-
-
-            return tmp;
+            return users;
         }
         catch (SQLException e){
             e.printStackTrace();
