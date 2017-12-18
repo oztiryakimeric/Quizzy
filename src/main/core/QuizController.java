@@ -50,7 +50,7 @@ public class QuizController implements ActionListener{
     private void finishQuiz(){
         timer.stop();
         gui.displayMessage("Quiz Finished");
-
+        gui.getUser().givePoint(gui.getQuiz().getPoint());
         mainFrame.showLoginPage();
     }
 

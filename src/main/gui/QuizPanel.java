@@ -4,22 +4,22 @@ import main.database.*;
 import main.database.Choice;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class QuizPanel extends JPanel{
+    private User user;
     private JLabel timerLabel;
     private JLabel scoreLabel;
     private JLabel questionTextLabel;
     private List<AnswerButton> answerButtons;
     private Quiz quiz;
 
-    public QuizPanel(Category category){
+    public QuizPanel(Category category, User user){
+        this.user = user;
         quiz = Quiz.getQuiz(category);
 
         answerButtons = new ArrayList<>();
@@ -105,5 +105,9 @@ public class QuizPanel extends JPanel{
 
     public Quiz getQuiz() {
         return quiz;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

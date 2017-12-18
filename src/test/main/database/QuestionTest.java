@@ -17,7 +17,6 @@ import static org.junit.Assert.assertFalse;
  * Created by SEZİN on 12/14/2017.
  */
 public class QuestionTest {
-    //  private Question initialQuestion;
     @Test
     public void solveTest(){
         String[] wrongAnswers = {"wrong1","wrong2","wrong3"};

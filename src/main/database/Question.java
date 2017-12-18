@@ -1,6 +1,8 @@
 package main.database;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Question {
     private String text;

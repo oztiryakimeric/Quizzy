@@ -1,7 +1,6 @@
 package main.database;
 
-import java.sql.SQLException;
-import java.util.*;
+import java.util.List;
 
 public class Category {
     private int id;

@@ -2,12 +2,10 @@ package main.gui;
 
 import main.Game;
 import main.core.*;
-import main.database.Api;
 import main.database.Category;
 import main.database.User;
 
 import javax.swing.*;
-import java.sql.SQLException;
 
 
 public class MainFrame extends JFrame {
@@ -51,7 +49,7 @@ public class MainFrame extends JFrame {
     }
 
     public void showQuizPage(Category category){
-        QuizPanel panel = new QuizPanel(category);
+        QuizPanel panel = new QuizPanel(category, authenticatedUser);
         QuizController controller = new QuizController(this, panel);
         drawPanel(panel);
     }

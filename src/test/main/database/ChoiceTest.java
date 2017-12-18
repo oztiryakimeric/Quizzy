@@ -41,6 +41,5 @@ public class ChoiceTest {
     @Test
     public void wrongOneTest(){
         assertFalse(Choice.wrongOne("text1").isCorrect());
-
     }
 }

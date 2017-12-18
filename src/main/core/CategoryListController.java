@@ -1,14 +1,11 @@
 package main.core;
 
-import main.database.Category;
 import main.gui.CategoryButton;
 import main.gui.CategoryListPanel;
 import main.gui.MainFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.*;
 
 public class CategoryListController implements ActionListener{
     private final MainFrame root;

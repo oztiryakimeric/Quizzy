@@ -1,13 +1,10 @@
 package main.core;
 
-import main.database.Api;
-import main.database.User;
 import main.gui.MainFrame;
 import main.gui.ScorePanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 
 public class ScoreController implements ActionListener {
@@ -24,6 +21,5 @@ public class ScoreController implements ActionListener {
         if (e.getSource().equals(gui.getBackButton())) {
             frame.showLoginPage();
         }
-
     }
 }

@@ -5,8 +5,7 @@ import main.database.Category;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
 

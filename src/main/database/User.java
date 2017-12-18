@@ -1,7 +1,6 @@
 package main.database;
 
 import java.sql.SQLException;
-import java.util.*;
 
 
 public class User {
@@ -25,7 +24,7 @@ public class User {
         return Api.getUser(username, password);
     }
 
-    public void givePoint(int amount) throws SQLException {
+    public void givePoint(int amount){
         Api.givePoint(this, amount);
     }
 

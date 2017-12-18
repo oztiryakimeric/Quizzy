@@ -2,7 +2,10 @@ package main.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
 
 public class Api {
     static Database db = new Database();
@@ -89,7 +92,8 @@ public class Api {
 
     public static void givePoint(User user, int point){
         try{
-            String sql = "UPDATE user SET score += " + point + " WHERE id = " + user.getId();
+            String sql = "UPDATE user SET score = score + " + point + " WHERE id = " + user.getId();
+            System.out.println(sql);
             int rs = db.query_update(sql);
         }
         catch (SQLException e){

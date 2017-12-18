@@ -6,7 +6,6 @@ import main.gui.MainFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class LoginController implements ActionListener{
 

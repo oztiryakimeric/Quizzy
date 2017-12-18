@@ -1,7 +1,5 @@
 package main.gui;
 
-import main.core.LoginController;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
