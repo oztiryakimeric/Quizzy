@@ -78,17 +78,18 @@ public class Api {
         return false;
     }
 
-    public static HashMap<User, Integer> getTop10() throws SQLException {
+    public static HashMap<Integer, User> getTop10() throws SQLException {
 
-        HashMap<User, Integer> tmp = new HashMap<>();
+        HashMap<Integer, User> tmp = new HashMap<>();
 
         String sql = "SELECT id,email,timestamp,score,username FROM user ORDER BY score DESC LIMIT 10";
         ResultSet rs = db.query(sql);
 
         while (rs.next()){
-            tmp.put(new User(rs.getInt("id"),rs.getString("username"),
-                    rs.getString("email"),rs.getLong("timestamp")),rs.getInt("score"));
+            tmp.put(rs.getInt("score"),new User(rs.getInt("id"),rs.getString("username"),
+                    rs.getString("email"),rs.getLong("timestamp")));
         }
+
 
         return tmp;
 
