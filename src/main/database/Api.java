@@ -93,7 +93,6 @@ public class Api {
     public static void givePoint(User user, int point){
         try{
             String sql = "UPDATE user SET score = score + " + point + " WHERE id = " + user.getId();
-            System.out.println(sql);
             int rs = db.query_update(sql);
         }
         catch (SQLException e){
