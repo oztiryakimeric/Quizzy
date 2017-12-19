@@ -20,6 +20,4 @@ public class UserTest {
         User user = User.authenticate("sezin","1234");
         assertEquals(null,user);
     }
-   
-
 }
