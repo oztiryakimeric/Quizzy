@@ -1,5 +1,6 @@
-package main.database;
+package test;
 
+import main.database.User;
 import org.junit.Test;
 
 

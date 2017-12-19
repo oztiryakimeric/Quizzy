@@ -1,4 +1,4 @@
-package main.database;
+package test;
 import main.database.Api;
 import main.database.Category;
 import org.junit.Test;

@@ -3,6 +3,7 @@ package main.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -75,12 +76,17 @@ public class Api {
             String sql = "SELECT id,question, c_anwser, w_answer, w_answer2, w_answer3 FROM question WHERE " +
                     "category_id=" + categoryID +" ORDER BY id DESC LIMIT 10";
             ResultSet rs = db.query(sql);
+
+            List<Question> tmpList = new ArrayList<>(10);
             Stack<Question> stack = new Stack<>();
             while (rs.next()){
                 String[] c1 = {rs.getString("w_answer"),rs.getString("w_answer2"),rs.getString("w_answer3")};
                 Question q1 = new Question(rs.getString("question"), c1,rs.getString("c_anwser"));
-                stack.push(q1);
+                tmpList.add(q1);
             }
+            Collections.shuffle(tmpList);
+            for(Question q: tmpList)
+                stack.push(q);
             return new Quiz(stack);
         }
         catch (SQLException e){
