@@ -279,7 +279,7 @@ INSERT INTO `quizzy_db`.`question` (
 )
 
 VALUES (
-'20', '3', 'Kristal Elma Odulu Türkiye'de hangi dalda verilir?', 'Reklam', 'Sinema', 'Tiyatro', 'Dizi'
+'20', '3', 'Kristal Elma Odulu Türkiye de hangi dalda verilir?', 'Reklam', 'Sinema', 'Tiyatro', 'Dizi'
 );
 
 INSERT INTO `quizzy_db`.`question` (
@@ -391,7 +391,7 @@ INSERT INTO `quizzy_db`.`question` (
 )
 
 VALUES (
-'28', '3', 'Marilyn Monroe'nun basrolunde oynadigi 1953 yapimi Amerikan filmin adi nedir?', 'Niagara', 'Bir Zamanlar Amerika’da', 'Fargo', 'Bicak Sirti'
+'28', '3', 'Marilyn Monroe nun basrolunde oynadigi 1953 yapimi Amerikan filmin adi nedir?', 'Niagara', 'Bir Zamanlar Amerika’da', 'Fargo', 'Bicak Sirti'
 );
 
 INSERT INTO `quizzy_db`.`question` (
@@ -743,7 +743,7 @@ INSERT INTO `quizzy_db`.`question` (
 )
 
 VALUES (
-'63', '6', 'Hangisi buyuk usta Yasar Kemal'in eseridir?', 'Ince Memed', 'Ekmek Kavgasi', 'Araba Sevdasi', 'Kurk Mantolu Madonna'
+'63', '6', 'Hangisi buyuk usta Yasar Kemal in eseridir?', 'Ince Memed', 'Ekmek Kavgasi', 'Araba Sevdasi', 'Kurk Mantolu Madonna'
 );
 
 
