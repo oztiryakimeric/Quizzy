@@ -3,7 +3,6 @@ package main.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
@@ -90,7 +89,7 @@ public class Api {
         return null;
     }
 
-    public static void givePoint(User user, int point){
+    public static Api givePoint(User user, int point) {
         try{
             String sql = "UPDATE user SET score = score + " + point + " WHERE id = " + user.getId();
             int rs = db.query_update(sql);
@@ -98,6 +97,7 @@ public class Api {
         catch (SQLException e){
             e.printStackTrace();
         }
+        return null;
     }
 
     public static List<User> getTop10(){

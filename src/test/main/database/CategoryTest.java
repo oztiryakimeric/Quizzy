@@ -26,6 +26,13 @@ public class CategoryTest {
     }
 
     @Test
+    public void getIdTest() {
+        Category category = new Category(4, "generalCulture", 120);
+        assertEquals(4, category.getId());
+
+    }
+
+    @Test
     public void getAllTest(){
         Category c1 = new Category(1, "General Culture", 120);
         Category c2 = new Category(2, "Music", 120);
