@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by oztiryakimeric on 2.12.2017.
  */
-class UserTest {
+public class UserTest {
     @Test
     public void createTest() {
         User user = User.create("meric", "123456", "meric@gmail.com");
@@ -21,4 +21,5 @@ class UserTest {
         assertEquals(null,user);
     }
    
+
 }
