@@ -29,7 +29,7 @@ public class NewUserController implements ActionListener{
                     root.showCategoriesPage();
                 }
                 else
-                    gui.displayError("This username or password is already in use.");
+                    gui.displayError("This username or email is already in use.");
             }
             else
                 gui.displayError("Mismatching passwords!");
