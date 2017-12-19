@@ -51,7 +51,7 @@ public class QuizController implements ActionListener{
         timer.stop();
         gui.displayMessage("Quiz Finished");
         gui.getUser().givePoint(gui.getQuiz().getPoint());
-        mainFrame.showLoginPage();
+        mainFrame.showScorePage();
     }
 
     private class TimeCounter{
