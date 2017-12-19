@@ -8,14 +8,14 @@ public class Quiz {
     private Question currentQuestion;
     private int point;
 
-    public Quiz(Stack<Question> questionList) {
-        this.questionStack = questionList;
-        this.currentQuestion = questionStack.pop();
+    public Quiz(Stack<Question> questionStack) {
+        this.questionStack = questionStack;
+        if(!this.isFinished())
+            this.currentQuestion = this.questionStack.pop();
     }
 
     public static Quiz getQuiz(Category category){
         return Api.getQuiz(category);
-
     }
 
     public boolean isFinished() {
@@ -23,8 +23,11 @@ public class Quiz {
     }
 
     public Question getNextQuestion() {
-        currentQuestion = questionStack.pop();
-        return currentQuestion;
+        if(!this.isFinished()) {
+            currentQuestion = questionStack.pop();
+            return currentQuestion;
+        }
+        return null;
     }
 
     public Question getCurrentQuestion() {
