@@ -42,10 +42,12 @@ public class Api {
 
 
             if (rs.getInt(1) == 1){
-                sql = "SELECT id,email,timestamp FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+                sql = "SELECT id,email,timestamp,score FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
                 rs = db.query(sql);
                 rs.next();
-                return new User(rs.getInt(1),username,rs.getString(2),rs.getLong(3));
+                User loggedUser = new User(rs.getInt(1),username,rs.getString(2),rs.getLong(3));
+                loggedUser.setPoint(rs.getInt(4));
+                return loggedUser;
             }
         }
         catch (SQLException e){
