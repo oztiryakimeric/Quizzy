@@ -91,8 +91,10 @@ public class Api {
 
     public static Api givePoint(User user, int point) {
         try{
-            String sql = "UPDATE user SET score = score + " + point + " WHERE id = " + user.getId();
-            int rs = db.query_update(sql);
+            if (user.getPoint() < point) {
+                String sql = "UPDATE user SET score = score + " + point + " WHERE id = " + user.getId();
+                int rs = db.query_update(sql);
+            }
         }
         catch (SQLException e){
             e.printStackTrace();
