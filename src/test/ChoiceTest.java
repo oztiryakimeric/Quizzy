@@ -1,4 +1,4 @@
-package main.database;
+package test;
 
 /**
  * Created by SEZİN on 12/15/2017.

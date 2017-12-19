@@ -1,4 +1,4 @@
-package test.main.database;
+package test;
 
 import main.database.Question;
 import main.database.Quiz;
