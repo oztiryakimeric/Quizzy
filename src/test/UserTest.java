@@ -14,11 +14,14 @@ public class UserTest {
     @Test
     public void createTest() {
         User user = User.create("meric", "123456", "meric@gmail.com");
-        assertEquals(null, user);
+        if(user == null)
+            assertEquals(null, user);
+        else
+            assertEquals(User.authenticate("meric", "123456"),user);
     }
     @Test
     public void authenticateTest() {
-        User user = User.authenticate("sezin","1234");
+        User user = User.authenticate("bengisu","123");
         assertEquals(null, user);
     }
 }
