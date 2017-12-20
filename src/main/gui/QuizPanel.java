@@ -89,10 +89,26 @@ public class QuizPanel extends JPanel{
 
     public void updateQuestion(Question question){
         List<Choice> choices = question.getChoiceList();
-        questionTextLabel.setText(question.getText());
+        questionTextLabel.setText(transformText(question.getText()));
 
         for(int i=0; i<choices.size(); i++)
             answerButtons.get(i).setChoice(choices.get(i));
+    }
+
+    private String transformText(String str){
+        int limit = 50;
+        String[] tmpArr = str.split(" ");
+        String transformed = "<html>";
+        int length = 0;
+        for(int i=0; i<tmpArr.length; i++){
+            transformed += tmpArr[i] + " ";
+            if(length++ >= limit){
+                transformed += "<br/>";
+                length = 0;
+            }
+        }
+        transformed += "</html>";
+        return transformed;
     }
 
     public void displayMessage(String message){

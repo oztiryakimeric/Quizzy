@@ -19,6 +19,6 @@ public class UserTest {
     @Test
     public void authenticateTest() {
         User user = User.authenticate("sezin","1234");
-        assertEquals(null,user);
+        assertEquals(null, user);
     }
 }
